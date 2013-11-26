@@ -1,5 +1,5 @@
 create database furniture_store;
-use furniture_store;
+use furniture_store; 
 
 create table tbl_category
 (
