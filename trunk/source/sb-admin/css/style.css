@@ -1,0 +1,20 @@
+.undisplayed{
+	display: none;
+}
+
+.btn-group-action {
+	text-align: center;
+}
+
+.btn-edit-action-cate{
+	margin-right: 20px;
+}
+
+.btn-action-cate{
+	font-size: 2em;
+	cursor: pointer;
+}
+
+.align-center{
+	 text-align: center;
+}

@@ -1,7 +1,7 @@
 <?php
 
 function getAllCategories() {
-    $sql = "SELECT * FROM category WHERE isDeleted=0";
+    $sql = "SELECT * FROM tbl_category";
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
         echo 'Could not run query: ' . mysql_error();
@@ -10,11 +10,10 @@ function getAllCategories() {
     $i = 0;
     $result = null;
     while ($seletedItem = mysql_fetch_array($queryResult)) {
-        $item = new category();
+        $item = new Category();
 		$item->id = $seletedItem['id'];
 		$item->name = $seletedItem['name'];
 		$item->description = $seletedItem['description'];
-		$item->isDeleted = $seletedItem['isDeleted'];
         $result[$i] = $item;
         $i++;
     }
@@ -22,23 +21,22 @@ function getAllCategories() {
 }
 
 function getCategoryById ($id) {
-    $sql = "SELECT * FROM category Where id = '".$id."'";
+    $sql = "SELECT * FROM tbl_category Where id = '".$id."'";
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
         echo 'Could not run query: ' . $id . mysql_error();
         exit;
     }
     $seletedItem = mysql_fetch_array($queryResult);
-    $item = new category();
+    $item = new Category();
     $item->id = $seletedItem['id'];
 	$item->name = $seletedItem['name'];
 	$item->description = $seletedItem['description'];
-	$item->isDeleted = $seletedItem['isDeleted'];
     return $item;
 }
 
 function insertCategory ($name, $description){
-    $sql = "INSERT INTO category VALUES (default, '$name', '$description',0)";
+    $sql = "INSERT INTO tbl_category VALUES (default, '$name', '$description')";
     $queryResult = mysql_query($sql) or die(mysql_error());
     
     if (!$queryResult) {
@@ -53,7 +51,7 @@ function insertCategory ($name, $description){
 }
 
 function updateCategoryById ($id, $name, $description){
-    $sql = " UPDATE category SET name = '$name', description = '$description' WHERE id = '$id'  ";
+    $sql = " UPDATE tbl_category SET name = '$name', description = '$description' WHERE id = '$id'  ";
     $queryResult = mysql_query($sql) or die(mysql_error());
     
     if (!$queryResult) {
@@ -68,27 +66,12 @@ function updateCategoryById ($id, $name, $description){
 }
 
 function deleteCategoryById($id) {
-    $sql = "DELETE FROM category WHERE id = '".$id."' ";
+    $sql = "DELETE FROM tbl_category WHERE id = '".$id."' ";
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
         return -1;
     } else {
         return 1;
     }
-}
-
-function updateIsDeletedCategoryById ($id, $isDeleted){
-    $sql = " UPDATE category SET isDeleted = '$isDeleted' WHERE id = '$id' ";
-    $queryResult = mysql_query($sql) or die(mysql_error());
-    
-    if (!$queryResult) {
-        echo 'Error: ' . $id . mysql_error();
-        return -1;
-    }
-    
-    if ($queryResult)
-        return 1;
-    else
-        return -1;
 }
 ?>
