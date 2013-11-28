@@ -18,7 +18,7 @@
     <!-- Add custom JavaScript here -->
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/validate.js"></script>
-    <script type="text/javascript" src="js/category-script.js"></script>
+    <script type="text/javascript" src="js/sub-category-script.js"></script>
   </head>
 
   <body>
@@ -73,7 +73,15 @@
 
         <div class="row">
           <div class="col-lg-6">
-            <h2>Bảng Danh Mục</h2>
+            <div class="form-group">
+                <div class="form-group has-error">
+                  <label class="control-label" for="inputError">Chọn danh mục ?</label>
+                </div>
+                
+                <select id="dropdownCateList" class="form-control">
+                </select>
+              </div>
+            <!-- <h2>Bảng Danh Mục</h2> -->
             <div class="table-responsive">
               <table class="table table-bordered table-hover tablesorter">
                 <thead>
@@ -84,7 +92,7 @@
                     <th class="align-center"> Thao Tác</th>
                   </tr>
                 </thead>
-                <tbody id="cateList">
+                <tbody id="subCateList">
                   <!-- <tr>
                     <td class="align-center">1</td>
                     <td>1265</td>
@@ -117,17 +125,21 @@
               </div>
               <div class="panel-body">
                   <div class="form-group">
-                    <label>Tên Danh Mục</label>
-                    <input id="txtCateId" type="hidden">
-                    <input id="txtCateName" class="form-control" placeholder="Nhập tên danh mục">
+                      <label>Tên Danh Mục</label>
+                      <select id="dropdownCateListAction" class="form-control"></select>
+                  </div>
+                  <div class="form-group">
+                    <label>Tên Loại Sản Phẩm</label>
+                    <input id="txtSubCateId" type="hidden">
+                    <input id="txtSubCateName" class="form-control" placeholder="Nhập tên loại sản phẩm">
                   </div>
                   <div class="form-group">
                     <label>Mô Tả</label>
-                    <textarea id="txtCateDes" class="form-control" rows="3"></textarea>
+                    <textarea id="txtSubCateDes" class="form-control" rows="3"></textarea>
                   </div>
-                  <button id="btn-update-cate" type="button" class="btn btn-success undisplayed" style="float: right">Cập Nhật</button>
-                  <button id="btn-del-cate" type="button" class="btn btn-danger" style="float: left">Hủy Bỏ</button>
-                  <button id="btn-add-cate" type="button" class="btn btn-primary" style="float: right">Thêm Mới</button>
+                  <button id="btn-update-subcate" type="button" class="btn btn-success undisplayed" style="float: right">Cập Nhật</button>
+                  <button id="btn-del-subcate" type="button" class="btn btn-danger" style="float: left">Hủy Bỏ</button>
+                  <button id="btn-add-subcate" type="button" class="btn btn-primary" style="float: right">Thêm Mới</button>
               </div>
             </div>
           </div>

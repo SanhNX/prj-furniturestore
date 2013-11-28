@@ -8,6 +8,7 @@
 
 	class SubCategory{
 		var $id;
+		var $cateId;
 		var $name;
 		var $description;
 	}

@@ -1,16 +1,17 @@
 $(document).ready(function() {
-    $('#btn-del-cate').on('click', function(e) {
+    $('#btn-del-subcate').on('click', function(e) {
         clearFormCate();
     });
-    $('#btn-add-cate').on('click', function(e) {
-        var name = $("#txtCateName").val();
-        var description = $("#txtCateDes").val();
-        var error = validateCategoryForm(name, description);
+    $('#btn-add-subcate').on('click', function(e) {
+        var name = $("#txtSubCateName").val();
+        var cateId = $("#dropdownCateListAction").val();
+        var description = $("#txtSubCateDes").val();
+        var error = validateSubCategoryForm(name, description);
         if(error != ""){
             alert(error);
             return;
         }
-        var str_string = 'flag=addCategorie&name='+ name+'&description='+ description;
+        var str_string = 'flag=addSubCategorie&cateId='+ cateId +'&name='+ name+'&description='+ description;
         $.ajax({
             type: "POST",
             url: "../services/admin-service.php",
@@ -18,7 +19,7 @@ $(document).ready(function() {
             cache: false,
             success: function(dto) {
                 if(dto == "success"){
-                    onloadCate();
+                    onloadSubCategory(cateId);
                 } else {
                     alert("Xảy ra lỗi. Vui lòng thử lại");
                 }
@@ -26,13 +27,17 @@ $(document).ready(function() {
             }
         });
     });
-    $('#btn-update-cate').on('click', function(e) {
-        updateRow($("#txtCateId").val(), $("#txtCateName").val(), $("#txtCateDes").val())
+    $('#btn-update-subcate').on('click', function(e) {
+        updateRow($("#txtSubCateId").val(), $("#dropdownCateListAction").val(), $("#txtSubCateName").val(), $("#txtSubCateDes").val())
     });
+    $("#dropdownCateList")[0].onchange = function(){
+        var cateId = $("#dropdownCateList").val();
+        onloadSubCategory(cateId);
+    };
 });
 
 function loadItem(id) {
-    var str_string = 'flag=loadItemCategorie&id='+ id;
+    var str_string = 'flag=loadItemSubCategorie&id='+ id;
     $.ajax({
         type: "POST",
         url: "../services/admin-service.php",
@@ -41,11 +46,12 @@ function loadItem(id) {
         success: function(dto) {
             var item = JSON.parse(dto);
             if(item){
-                $("#txtCateId").val(item.id);
-                $("#txtCateName").val(item.name);
-                $("#txtCateDes").val(item.description);
-                $("#btn-add-cate").addClass("undisplayed");
-                $("#btn-update-cate").removeClass("undisplayed");
+                $("#txtSubCateId").val(item.id);
+                $("#dropdownCateListAction").val(item.cateId);
+                $("#txtSubCateName").val(item.name);
+                $("#txtSubCateDes").val(item.description);
+                $("#btn-add-subcate").addClass("undisplayed");
+                $("#btn-update-subcate").removeClass("undisplayed");
             } else {
                 alert("Xảy ra lỗi. Vui lòng thử lại");
             }
@@ -54,8 +60,8 @@ function loadItem(id) {
     });
 };
 
-function updateRow(id, name, description) {
-    var str_string = 'flag=updateCategorie&id='+ id+'&name='+ name+'&description='+ description;
+function updateRow(id, cateId, name, description) {
+    var str_string = 'flag=updateSubCategorie&id='+ id +'&cateId='+ cateId +'&name='+ name+'&description='+ description;
     $.ajax({
         type: "POST",
         url: "../services/admin-service.php",
@@ -63,7 +69,7 @@ function updateRow(id, name, description) {
         cache: false,
         success: function(dto) {
             if(dto == "success"){
-                onloadCate();
+                onloadSubCategory(cateId);
                 clearFormCate();
             } else {
                 alert("Xảy ra lỗi. Vui lòng thử lại");
@@ -78,7 +84,7 @@ function deleteRow(id) {
     if (!r){
         return;
     }
-    var str_string = 'flag=deleteCategorie&id='+ id;
+    var str_string = 'flag=deleteSubCategorie&id='+ id;
     $.ajax({
         type: "POST",
         url: "../services/admin-service.php",
@@ -86,7 +92,7 @@ function deleteRow(id) {
         cache: false,
         success: function(dto) {
             if(dto == "success"){
-                onloadCate();
+                onloadSubCategory($("#dropdownCateList").val());
                 clearFormCate();
             } else {
                 alert("Xảy ra lỗi. Vui lòng thử lại");
@@ -96,14 +102,14 @@ function deleteRow(id) {
 };
 
 function clearFormCate() {
-    $("#txtCateId").val("");
-    $("#txtCateName").val("");
-    $("#txtCateDes").val("");
-    $("#btn-add-cate").removeClass("undisplayed");
-    $("#btn-update-cate").addClass("undisplayed");
+    $("#txtSubCateId").val("");
+    $("#txtSubCateName").val("");
+    $("#txtSubCateDes").val("");
+    $("#btn-add-subcate").removeClass("undisplayed");
+    $("#btn-update-subcate").addClass("undisplayed");
 };
 
-function onloadCate () {
+function onloadDropDownCategory () {
     var str_string = 'flag=getAllCategories';
     $.ajax({
         type: "POST",
@@ -112,6 +118,32 @@ function onloadCate () {
         cache: false,
         success: function(dto) {
             var items = JSON.parse(dto);
+            var cateListHTML = "";
+            for (var i = 0; i <= items.length - 1; i++) {
+                var cateItemHTML = '<option value="'+ items[i].id +'">'+ items[i].name + '</option>';
+                cateListHTML += cateItemHTML;
+            }
+            $("#dropdownCateList")[0].innerHTML = "";
+            $("#dropdownCateList").append(cateListHTML);
+            $("#dropdownCateListAction")[0].innerHTML = $("#dropdownCateList")[0].innerHTML;
+            onloadSubCategory($("#dropdownCateList").val());
+        }
+    });
+};
+
+function onloadSubCategory (id) {
+    var str_string = 'flag=getAllSubCategoriesByCateId&cateId='+ id;
+    $.ajax({
+        type: "POST",
+        url: "../services/admin-service.php",
+        data: str_string,
+        cache: false,
+        success: function(dto) {
+            var items = JSON.parse(dto);
+            $("#subCateList")[0].innerHTML = "";
+            if(!items){
+                return;
+            }
             var cateListHTML = "";
             for (var i = 0; i <= items.length - 1; i++) {
                 var cateItemHTML = '<tr><td class="align-center">'+ (items[i].id) +'</td>'+
@@ -126,9 +158,12 @@ function onloadCate () {
                       '</tr>';
                 cateListHTML += cateItemHTML;
             };
-            $("#cateList")[0].innerHTML = "";
-            $("#cateList").append(cateListHTML);
+            
+            $("#subCateList").append(cateListHTML);
         }
     });
+};
+
+window.onload = function(){
+    onloadDropDownCategory();
 }
-window.onload = onloadCate();
