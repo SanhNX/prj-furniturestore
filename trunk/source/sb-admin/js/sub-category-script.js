@@ -141,9 +141,12 @@ function createPaging(list){
     if(totalPage === 1){
         return;
     }
-    $("#paging-sub-category")[0].innerHTML += '<li class="disabled"><a href="#">«</a></li>';
+    $("#paging-sub-category")[0].innerHTML += '<li><a href="#">«</a></li>'; // class="disabled"
     for (var i = 1; i <= totalPage; i++) {
-        var item = "<li><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
+        var item = "<li id='paging_"+ i +"' class='paging'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
+        if(i == 1){
+            var item = "<li id='paging_"+ i +"' class='paging active'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
+        }
         $("#paging-sub-category")[0].innerHTML += item; 
     };
     $("#paging-sub-category")[0].innerHTML += '<li><a href="#">»</a></li>'; 
@@ -151,6 +154,12 @@ function createPaging(list){
 
 function loadPaging(pageIndex){
     createTable(parseInt(pageIndex, 10), data);
+    for(var i = 1; i <= $(".paging").length; i++){
+        if(i == parseInt(pageIndex, 10))
+            $("#paging_" + i).addClass("active");
+        else
+            $("#paging_" + i).removeClass("active");
+    }
 };
 
 function createTable(pageIndex, data){
