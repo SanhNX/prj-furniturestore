@@ -32,7 +32,7 @@
                                 </p>
                                 <p> 
                                     <label for="txtpass" class="youpasswd" data-icon="p"> Your Password </label>
-                                    <input id="txtpass" name="txtpass" type="password" placeholder="eg. ******" />
+                                    <input id="txtpass" name="txtpass" type="password" placeholder="eg. ******" onKeyPress="enterpressalert(event, this)" />
                                 </p>
                                 <p class="keeplogin"> 
 									<input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
