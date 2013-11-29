@@ -22,6 +22,7 @@ $(document).ready(function() {
             success: function(dto) {
                 if(dto == "success"){
                     onloadSubCategory(cateId);
+                    $("#dropdownCateList").val(cateId)
                 } else {
                     alert("Xảy ra lỗi. Vui lòng thử lại");
                 }
