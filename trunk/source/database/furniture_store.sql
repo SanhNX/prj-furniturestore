@@ -28,7 +28,7 @@ create table tbl_product
     color varchar(100) CHARACTER SET utf8,
     description varchar(1000) CHARACTER SET utf8
 );
-create table tbl_administrator
+create table tbl_admin
 (
     id int auto_increment primary key not null,
     name varchar(30) CHARACTER SET utf8 not null,

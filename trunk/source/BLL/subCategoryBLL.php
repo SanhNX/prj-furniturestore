@@ -22,7 +22,7 @@ function getAllSubCategories() {
 }
 
 function getAllSubCategoriesByCateId ($id) {
-    $sql = "SELECT * FROM tbl_sub_category Where cateid = '".$id."'";
+    $sql = "SELECT * FROM tbl_sub_category Where cateid = '".$id."'"; // ORDER BY name ASC
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
         echo 'Could not run query: ' . mysql_error();

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,6 +17,9 @@
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <!-- Page Specific CSS -->
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+    <!-- Page Specific JS -->
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/ajax-admin.js"></script>
   </head>
 
   <body>
@@ -42,17 +46,25 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
+            <?php
+            // $avatar = 'images/icon/no-avatar.png';
+            if (isset($_SESSION["admin_email"])) {
+                echo '<li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ' . $_SESSION['admin_name'] . ' <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                          <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
+                          <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                          <li class="divider"></li>
+                          <li><a id="btn-admin-logout" href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                      </li>';
+            } else {
+                echo '<script type="text/javascript">warningAuthorize()</script>';
+                exit();
+            }
+            ?>
             
-            <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
-                <li class="divider"></li>
-                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
-              </ul>
-            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>

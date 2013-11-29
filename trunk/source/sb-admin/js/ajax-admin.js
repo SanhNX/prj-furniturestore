@@ -1,25 +1,13 @@
 $(document).ready(function() {
     $('#btn-admin-logout').on('click', function(e) {
-
-        bootbox.confirm('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp• Do you really want to log out ?</a><br/>', function(result){
-            if(result){
-
-                $.post("./BLL/adminUnAuthorizeBLL.php", function(resp) {
-                    if (resp === "success") {
-                        bootbox.alert('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•  Logout successful! Press "OK" to return login page</a><br/>', function(){
-                            window.location.href = 'admin-login.php';
-                        });
-                        setTimeout(function(){
-                            $(".modal")[0].style.width = '655px';
-                            $(".modal")[0].style.left = '40%';
-                        },300);
-                    }
-                });
-            }
-        });
-        $(".modal")[0].style.width = '510px';
-        $(".modal")[0].style.left = '52%';
-
+        var r = confirm("Bạn có muốn đăng xuất ?");
+        if (r){
+            $.post("../BLL/adminUnAuthorizeBLL.php", function(resp) {
+                if (resp === "success") {
+                    window.location.href = 'admin-login.php';
+                }
+            });
+        }
     });
 
     $('#btn-admin-login').on('click', function(e) {
@@ -68,9 +56,7 @@ $(document).ready(function() {
                                 $(".modal")[0].style.left = '52%';
                             }, 3000);
                             return false;
-                        }
-                        // else if (dto === 'fail') {
-                        else {
+                        } else {
                             setTimeout(function() {
                                 $(".admin-progress").addClass("undisplayed");
                                 bootbox.alert('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbspSorry ! You had login fail.</a>' +
@@ -96,14 +82,26 @@ $(document).ready(function() {
 });
 
 function warningAuthorize (){
-    bootbox.alert('<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbspSorry ! You must login to use control panel.</a>' +
-        '<br/><a style="color: #ff0000">&nbsp&nbsp&nbsp&nbspPlease login now .</a>', function(){
-        window.location.href = "admin-login.php"
-        setTimeout(function(){
-            $(".modal")[0].style.width = '655px';
-            $(".modal")[0].style.left = '40%';
-        },300);
-    });
-    $(".modal")[0].style.width = '510px';
-    $(".modal")[0].style.left = '52%';
+    // Existing object
+    var obj = {
+        notify: function() {
+          alert( "Bạn phải đăng nhập để sử dụng chức năng này !");
+        },
+        redirect: function() {
+          window.location.href = "admin-login.php";
+        }
+    },
+    // Create a Deferred
+    defer = $.Deferred();
+     
+    // Set object as a promise
+    defer.promise(obj);
+     
+    // Resolve the deferred
+    defer.resolve();
+     
+    // Use the object as a Promise
+    obj.done(function() {
+      obj.notify(); 
+    }).redirect(); 
 }
