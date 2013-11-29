@@ -22,6 +22,7 @@ function getAllSubCategories() {
 }
 
 function getAllSubCategoriesByCateId ($id) {
+    // $sql = "SELECT * FROM tbl_sub_category Where cateid = '".$id."' LIMIT '".($pageNumber*10)."', '".($pageNumber*10*2)."'"; // ORDER BY name ASC
     $sql = "SELECT * FROM tbl_sub_category Where cateid = '".$id."'"; // ORDER BY name ASC
     $queryResult = mysql_query($sql);
     if (!$queryResult) {

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,16 +46,24 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
-            <li class="dropdown user-dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-                <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
-                <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
-                <li class="divider"></li>
-                <li><a href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
-              </ul>
-            </li>
+            <?php
+            // $avatar = 'images/icon/no-avatar.png';
+            if (isset($_SESSION["admin_email"])) {
+                echo '<li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ' . $_SESSION['admin_name'] . ' <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                          <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
+                          <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+                          <li class="divider"></li>
+                          <li><a id="btn-admin-logout" href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+                        </ul>
+                      </li>';
+            } else {
+                echo '<script type="text/javascript">warningAuthorize()</script>';
+                exit();
+            }
+            ?>
           </ul>
         </div><!-- /.navbar-collapse -->
       </nav>
@@ -106,14 +115,14 @@
                   </tr> -->
                 </tbody>
               </table>
-              <ul class="pagination pagination-sm" style="margin-left: 150px;">
-                <li class="disabled"><a href="#">«</a></li>
+              <ul id="paging-sub-category" class="pagination pagination-sm" style="margin-left: 150px;">
+                <!-- <li class="disabled"><a href="#">«</a></li>
                 <li class="active"><a href="#">1</a></li>
                 <li><a href="#">2</a></li>
                 <li><a href="#">3</a></li>
                 <li><a href="#">4</a></li>
                 <li><a href="#">5</a></li>
-                <li><a href="#">»</a></li>
+                <li><a href="#">»</a></li> -->
               </ul>
             </div>
           </div>

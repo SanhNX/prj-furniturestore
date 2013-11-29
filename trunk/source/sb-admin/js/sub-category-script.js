@@ -1,3 +1,5 @@
+var data = null;
+
 $(document).ready(function() {
     $('#btn-del-subcate').on('click', function(e) {
         clearFormCate();
@@ -131,6 +133,57 @@ function onloadDropDownCategory () {
     });
 };
 
+function createPaging(list){
+    var totalPage = 0;
+    var tempPage = list.length/10;
+    totalPage = tempPage > Math.round(tempPage) ? Math.floor(tempPage) + 1 : Math.round(tempPage);
+    $("#paging-sub-category")[0].innerHTML = "";
+    if(totalPage === 1){
+        return;
+    }
+    $("#paging-sub-category")[0].innerHTML += '<li class="disabled"><a href="#">«</a></li>';
+    for (var i = 1; i <= totalPage; i++) {
+        var item = "<li><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
+        $("#paging-sub-category")[0].innerHTML += item; 
+    };
+    $("#paging-sub-category")[0].innerHTML += '<li><a href="#">»</a></li>'; 
+};
+
+function loadPaging(pageIndex){
+    createTable(parseInt(pageIndex, 10), data);
+};
+
+function createTable(pageIndex, data){
+    $("#subCateList")[0].innerHTML = "";
+    if(!data){
+        return;
+    }
+    var cateListHTML = "";
+    var index = 0;
+    if(pageIndex == 1){
+        index = 0;
+    } else{
+        index = (pageIndex * 10) - 11;
+    }
+    for (var i = index > 0 ? (index + 1) : index; i <= (pageIndex*10) - 1; i++) {
+        if(data[i]){
+            var cateItemHTML = '<tr><td class="align-center">'+ (data[i].id) +'</td>'+
+                    '<td>'+data[i].name+'</td>'+
+                    '<td>'+(data[i].description ? data[i].description : " Chưa có mô tả ")+'</td>'+
+                    '<td>'+
+                      '<div class="btn-group-action">'+
+                        "<a href='javascript:loadItem(" + '"' + data[i].id + '"' + ")' class='fa fa-pencil-square-o btn-action-cate btn-edit-action-cate' title='Chỉnh Sửa'></a>"+
+                        "<a href='javascript:deleteRow(" + '"' + data[i].id + '"' + ")' class='fa fa-times btn-action-cate' title='Xóa'></a>"+
+                      '</div>'+
+                    '</td>'+
+                  '</tr>';
+            cateListHTML += cateItemHTML;
+        }
+    };
+    
+    $("#subCateList").append(cateListHTML);
+};
+
 function onloadSubCategory (id) {
     var str_string = 'flag=getAllSubCategoriesByCateId&cateId='+ id;
     $.ajax({
@@ -139,27 +192,9 @@ function onloadSubCategory (id) {
         data: str_string,
         cache: false,
         success: function(dto) {
-            var items = JSON.parse(dto);
-            $("#subCateList")[0].innerHTML = "";
-            if(!items){
-                return;
-            }
-            var cateListHTML = "";
-            for (var i = 0; i <= items.length - 1; i++) {
-                var cateItemHTML = '<tr><td class="align-center">'+ (items[i].id) +'</td>'+
-                        '<td>'+items[i].name+'</td>'+
-                        '<td>'+(items[i].description ? items[i].description : " Chưa có mô tả ")+'</td>'+
-                        '<td>'+
-                          '<div class="btn-group-action">'+
-                            "<a href='javascript:loadItem(" + '"' + items[i].id + '"' + ")' class='fa fa-pencil-square-o btn-action-cate btn-edit-action-cate' title='Chỉnh Sửa'></a>"+
-                            "<a href='javascript:deleteRow(" + '"' + items[i].id + '"' + ")' class='fa fa-times btn-action-cate' title='Xóa'></a>"+
-                          '</div>'+
-                        '</td>'+
-                      '</tr>';
-                cateListHTML += cateItemHTML;
-            };
-            
-            $("#subCateList").append(cateListHTML);
+            data = JSON.parse(dto);
+            createTable(1, data);
+            createPaging(data);
         }
     });
 };
