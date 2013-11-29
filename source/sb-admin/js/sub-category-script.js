@@ -159,13 +159,8 @@ function createTable(pageIndex, data){
         return;
     }
     var cateListHTML = "";
-    var index = 0;
-    if(pageIndex == 1){
-        index = 0;
-    } else{
-        index = (pageIndex * 10) - 11;
-    }
-    for (var i = index > 0 ? (index + 1) : index; i <= (pageIndex*10) - 1; i++) {
+    index = (pageIndex * 10) - 10;
+    for (var i = index; i <= (pageIndex*10) - 1; i++) {
         if(data[i]){
             var cateItemHTML = '<tr><td class="align-center">'+ (data[i].id) +'</td>'+
                     '<td>'+data[i].name+'</td>'+
