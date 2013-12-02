@@ -33,9 +33,9 @@ $(document).ready(function() {
     $('#btn-update-subcate').on('click', function(e) {
         updateRow($("#txtSubCateId").val(), $("#dropdownCateListAction").val(), $("#txtSubCateName").val(), $("#txtSubCateDes").val())
     });
-    $("#dropdownCateList")[0].onchange = function(){
-        var cateId = $("#dropdownCateList").val();
-        onloadSubCategory(cateId);
+    $("#dropdownSubCateList")[0].onchange = function(){
+        var subcateId = $("#dropdownSubCateList").val();
+        onloadProductList(subcateId);
     };
 });
 
@@ -87,7 +87,7 @@ function deleteRow(id) {
     if (!r){
         return;
     }
-    var str_string = 'flag=deleteSubCategorie&id='+ id;
+    var str_string = 'flag=deleteProduct&id='+ id;
     $.ajax({
         type: "POST",
         url: "../services/admin-service.php",
@@ -95,8 +95,8 @@ function deleteRow(id) {
         cache: false,
         success: function(dto) {
             if(dto == "success"){
-                onloadSubCategory($("#dropdownCateList").val());
-                clearFormCate();
+                onloadProductList($("#dropdownSubCateList").val());
+                // clearFormCate();
             } else {
                 alert("Xảy ra lỗi. Vui lòng thử lại");
             }
@@ -112,8 +112,8 @@ function clearFormCate() {
     $("#btn-update-subcate").addClass("undisplayed");
 };
 
-function onloadDropDownCategory () {
-    var str_string = 'flag=getAllCategories';
+function onloadDropDownSubCategory () {
+    var str_string = 'flag=getAllSubCategories';
     $.ajax({
         type: "POST",
         url: "../services/admin-service.php",
@@ -121,15 +121,15 @@ function onloadDropDownCategory () {
         cache: false,
         success: function(dto) {
             var items = JSON.parse(dto);
-            var cateListHTML = "";
+            var subCateListHTML = "";
             for (var i = 0; i <= items.length - 1; i++) {
-                var cateItemHTML = '<option value="'+ items[i].id +'">'+ items[i].name + '</option>';
-                cateListHTML += cateItemHTML;
+                var subCateItemHTML = '<option value="'+ items[i].id +'">'+ items[i].name + '</option>';
+                subCateListHTML += subCateItemHTML;
             }
-            $("#dropdownCateList")[0].innerHTML = "";
-            $("#dropdownCateList").append(cateListHTML);
-            $("#dropdownCateListAction")[0].innerHTML = $("#dropdownCateList")[0].innerHTML;
-            onloadSubCategory($("#dropdownCateList").val());
+            $("#dropdownSubCateList")[0].innerHTML = "";
+            $("#dropdownSubCateList").append(subCateListHTML);
+            // $("#dropdownCateListAction")[0].innerHTML = $("#dropdownCateList")[0].innerHTML;
+            onloadProductList($("#dropdownSubCateList").val());
         }
     });
 };
@@ -172,10 +172,14 @@ function createTable(pageIndex, data){
     index = (pageIndex * 10) - 10;
     for (var i = index; i <= (pageIndex*10) - 1; i++) {
         if(data[i]){
-            var cateItemHTML = '<tr><td class="align-center">'+ (data[i].id) +'</td>'+
-                    '<td>'+data[i].name+'</td>'+
-                    '<td>'+(data[i].description ? data[i].description : " Chưa có mô tả ")+'</td>'+
-                    '<td>'+
+            var cateItemHTML = '<tr><td class="align-vertical">'+ (data[i].id) +'</td>'+
+                    '<td class="align-vertical">'+ (data[i].name.length > 20 ? (data[i].name.substr(0, 19) + "...") : data[i].name )+'</td>'+
+                    // '<td>'+data[i].name +'</td>'+
+                    '<td class="align-vertical">'+addCommas(data[i].price)+'</td>'+
+                    '<td class="align-vertical">'+addCommas(data[i].promotion_price)+'</td>'+
+                    '<td class="align-vertical">'+data[i].size+'</td>'+
+                    '<td class="align-center"><img class="grid-img" src='+data[i].image+'></td>'+
+                    '<td class="align-vertical">'+
                       '<div class="btn-group-action">'+
                         "<a href='javascript:loadItem(" + '"' + data[i].id + '"' + ")' class='fa fa-pencil-square-o btn-action-cate btn-edit-action-cate' title='Chỉnh Sửa'></a>"+
                         "<a href='javascript:deleteRow(" + '"' + data[i].id + '"' + ")' class='fa fa-times btn-action-cate' title='Xóa'></a>"+
@@ -189,8 +193,8 @@ function createTable(pageIndex, data){
     $("#subCateList").append(cateListHTML);
 };
 
-function onloadSubCategory (id) {
-    var str_string = 'flag=getAllSubCategoriesByCateId&cateId='+ id;
+function onloadProductList (subCateId) {
+    var str_string = 'flag=getAllProductBySubCateId&subCateId='+ subCateId;
     $.ajax({
         type: "POST",
         url: "../services/admin-service.php",
@@ -204,6 +208,18 @@ function onloadSubCategory (id) {
     });
 };
 
+function addCommas(str) {
+    var amount = new String(str);
+    amount = amount.split("").reverse();
+
+    var output = "";
+    for (var i = 0; i <= amount.length - 1; i++) {
+        output = amount[i] + output;
+        if ((i + 1) % 3 == 0 && (amount.length - 1) !== i) output = ',' + output;
+    }
+    return output;
+}
+
 window.onload = function(){
-    onloadDropDownCategory();
+    onloadDropDownSubCategory();
 }

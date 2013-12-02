@@ -2,8 +2,9 @@
 // include all BLL use to handlen request
 include '../DAO/connection.php';
 include '../DTO/object.php';
-include '../BLL/categoryBll.php';
-include '../BLL/subCategoryBll.php';
+include '../BLL/categoryBLL.php';
+include '../BLL/subCategoryBLL.php';
+include '../BLL/productBLL.php';
 // Handle for each request should add in two line comment
 
 // ---------------- REQUEST WITH FLAG : loadHorizontalTabs --------------------
@@ -46,7 +47,11 @@ if($flag == 'getAllCategories'){
     }
 } 
 // ------------------ SUB CATEGORY --------------------------
-else if($flag == 'getAllSubCategoriesByCateId'){
+else if($flag == 'getAllSubCategories'){
+    $categories = getAllSubCategories();
+    // return value which function call ajax receive response
+    echo json_encode($categories);
+} else if($flag == 'getAllSubCategoriesByCateId'){
     $categories = getAllSubCategoriesByCateId($_POST['cateId']);
     // return value which function call ajax receive response
     echo json_encode($categories);
@@ -78,6 +83,20 @@ else if($flag == 'getAllSubCategoriesByCateId'){
 } else if($flag == 'deleteSubCategorie'){
     $id = $_POST['id'];
     $status = deleteSubCategoryById($id);
+    if($status == -1){
+        echo 'fail';
+    } else {
+        echo 'success';
+    }
+}
+// ------------------ SUB CATEGORY --------------------------
+else if($flag == 'getAllProductBySubCateId'){
+    $products = getAllProductBySubCateId($_POST['subCateId']);
+    // return value which function call ajax receive response
+    echo json_encode($products);
+} else if($flag == 'deleteProduct'){
+    $id = $_POST['id'];
+    $status = deleteProductById($id);
     if($status == -1){
         echo 'fail';
     } else {

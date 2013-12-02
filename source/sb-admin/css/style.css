@@ -21,4 +21,8 @@
 .align-center{
 	 text-align: center;
 }
+.align-vertical{
+	 vertical-align: middle !important;
+	 text-align: center;
+}
 
