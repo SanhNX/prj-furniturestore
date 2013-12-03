@@ -24,10 +24,9 @@ create table tbl_product
     name varchar(100) CHARACTER SET utf8 not null,
     price int not null,
     promotion_price int,
-    image varchar(1000) not null,
-    thumnail_1 varchar(1000),
-    thumnail_2 varchar(1000),
-    thumnail_3 varchar(1000),
+    image_1 varchar(1000) not null,
+    image_2 varchar(1000),
+    image_3 varchar(1000),
     size varchar(100) CHARACTER SET utf8,
     material varchar(100) CHARACTER SET utf8,
     color varchar(100) CHARACTER SET utf8,
@@ -76,5 +75,11 @@ INSERT INTO tbl_sub_category(cateid, name) VALUES(2, 'Tủ hồ sơ');
 INSERT INTO tbl_sub_category(cateid, name) VALUES(2, 'Bục kệ');
 
 INSERT INTO tbl_sub_category(cateid, name) VALUES(3, 'Đồ gỗ ngoài trời');
-INSERT INTO `furniture_store`.`tbl_product` (`subcateid`, `name`, `price`, `promotion_price`, `image`, `thumnail_1`, `thumnail_2`, `thumnail_3`, `size`, `material`, `color`, `description`) VALUES (1, 'Bàn cà phê vuông 1M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ');
+INSERT INTO tbl_product(subcateid, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description) 
+VALUES (1, 'Bàn cà phê vuông 1M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ');
+INSERT INTO tbl_product(subcateid, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description) 
+VALUES (2, 'Bàn cà phê vuông 2M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ');
+INSERT INTO tbl_product(subcateid, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description) 
+VALUES (3, 'Bàn cà phê vuông 3M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ');
+
 

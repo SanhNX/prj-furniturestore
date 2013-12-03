@@ -25,10 +25,9 @@
     	var $name;
 	    var $price;
 	    var $promotion_price;
-	    var $image;
-	    var $thumnail_1;
-	    var $thumnail_2;
-	    var $thumnail_3;
+	    var $image_1;
+	    var $image_2;
+	    var $image_3;
 	    var $size;
 	    var $material;
 	    var $color;
