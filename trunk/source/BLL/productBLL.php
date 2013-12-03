@@ -16,10 +16,9 @@ function getAllProduct() {
         $item->name = $seletedItem['name'];
         $item->price = $seletedItem['price'];
         $item->promotion_price = $seletedItem['promotion_price'];
-        $item->image = $seletedItem['image'];
-        $item->thumnail_1 = $seletedItem['thumnail_1'];
-        $item->thumnail_2 = $seletedItem['thumnail_2'];
-        $item->thumnail_3 = $seletedItem['thumnail_3'];
+        $item->image_1 = $seletedItem['image_1'];
+        $item->image_2 = $seletedItem['image_2'];
+        $item->image_3 = $seletedItem['image_3'];
         $item->size = $seletedItem['size'];
         $item->material = $seletedItem['material'];
 		$item->color = $seletedItem['color'];
@@ -47,10 +46,9 @@ function getAllProductBySubCateId ($subcateid) {
         $item->name = $seletedItem['name'];
         $item->price = $seletedItem['price'];
         $item->promotion_price = $seletedItem['promotion_price'];
-        $item->image = $seletedItem['image'];
-        $item->thumnail_1 = $seletedItem['thumnail_1'];
-        $item->thumnail_2 = $seletedItem['thumnail_2'];
-        $item->thumnail_3 = $seletedItem['thumnail_3'];
+        $item->image_1 = $seletedItem['image_1'];
+        $item->image_2 = $seletedItem['image_2'];
+        $item->image_3 = $seletedItem['image_3'];
         $item->size = $seletedItem['size'];
         $item->material = $seletedItem['material'];
         $item->color = $seletedItem['color'];
@@ -75,10 +73,9 @@ function getProductById ($id) {
     $item->name = $seletedItem['name'];
     $item->price = $seletedItem['price'];
     $item->promotion_price = $seletedItem['promotion_price'];
-    $item->image = $seletedItem['image'];
-    $item->thumnail_1 = $seletedItem['thumnail_1'];
-    $item->thumnail_2 = $seletedItem['thumnail_2'];
-    $item->thumnail_3 = $seletedItem['thumnail_3'];
+    $item->image_1 = $seletedItem['image_1'];
+    $item->image_2 = $seletedItem['image_2'];
+    $item->image_3 = $seletedItem['image_3'];
     $item->size = $seletedItem['size'];
     $item->material = $seletedItem['material'];
     $item->color = $seletedItem['color'];
@@ -86,10 +83,10 @@ function getProductById ($id) {
     return $item;
 }
 
-function insertProduct ($subcateId, $name, $price, $promotion_price, $image, $thumnail_1, 
-    $thumnail_2, $thumnail_3, $size, $material, $color, $description){
-    $sql = "INSERT INTO tbl_product VALUES (default, '$subcateId', '$name', '$price', '$promotion_price', '$image', '$thumnail_1', 
-        '$thumnail_2', '$thumnail_3', '$size', '$material', '$color', '$description')";
+function insertProduct ($subcateId, $name, $price, $promotion_price, $image_1, 
+    $image_2, $image_3, $size, $material, $color, $description){
+    $sql = "INSERT INTO tbl_product VALUES (default, '$subcateId', '$name', '$price', '$promotion_price', '$image_1', 
+        '$image_2', '$image_3', '$size', '$material', '$color', '$description')";
     $queryResult = mysql_query($sql) or die(mysql_error());
     
     if (!$queryResult) {
@@ -103,10 +100,10 @@ function insertProduct ($subcateId, $name, $price, $promotion_price, $image, $th
         return -1;
 }
 
-function updateProductById ($id, $subcateId, $name, $price, $promotion_price, $image, $thumnail_1, 
-    $thumnail_2, $thumnail_3, $size, $material, $color, $description){
+function updateProductById ($id, $subcateId, $name, $price, $promotion_price, $image_1, 
+    $image_2, $image_3, $size, $material, $color, $description){
     $sql = " UPDATE tbl_product SET subcateid = '$subcateId', name = '$name', price = '$price', promotion_price = '$promotion_price', 
-    image = '$image', thumnail_1 = '$thumnail_1', thumnail_2 = '$thumnail_2', thumnail_3 = '$thumnail_3', size = '$size', 
+    image_1 = '$image_1', image_2 = '$image_2', image_3 = '$image_3', size = '$size', 
     material = '$material', color = '$color', description = '$description' WHERE id = '$id'  ";
     $queryResult = mysql_query($sql) or die(mysql_error());
     

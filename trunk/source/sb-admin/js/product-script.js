@@ -1,8 +1,12 @@
 var data = null;
 
 $(document).ready(function() {
-    $('#btn-del-subcate').on('click', function(e) {
-        clearFormCate();
+    $('#btn-cancel-product').on('click', function(e) {
+        var body = $("body");
+        body.animate({scrollTop: 0}, 1000, function(){
+            clearFormProduct();
+            $("#pnl-add-edit-product").addClass("undisplayed");
+        });
     });
     $('#btn-add-subcate').on('click', function(e) {
         var name = $("#txtSubCateName").val();
@@ -33,11 +37,101 @@ $(document).ready(function() {
     $('#btn-update-subcate').on('click', function(e) {
         updateRow($("#txtSubCateId").val(), $("#dropdownCateListAction").val(), $("#txtSubCateName").val(), $("#txtSubCateDes").val())
     });
+
+    $('#btn-addProduct').on('click', function(e) {
+        $("#pnl-add-edit-product").removeClass("undisplayed");
+        var body = $("body");
+        // var top = body.scrollTop() // Get position of the body
+        // if(top!=0)
+        // {
+        body.animate({scrollTop: document.body.scrollHeight}, 2000);
+        // }
+    });
+
     $("#dropdownSubCateList")[0].onchange = function(){
         var subcateId = $("#dropdownSubCateList").val();
         onloadProductList(subcateId);
     };
+    $(".Choicefile1").bind('click', function () {
+        $("#uploadfile1").click();
+        
+    });
+    $(".Choicefile2").bind('click', function () {
+        $("#uploadfile2").click();
+        
+    });
+    $(".Choicefile3").bind('click', function () {
+        $("#uploadfile3").click();
+        
+    });
+
+    $(".removeimg").click(function () {
+        $("#thumbimage3").attr('src', '').hide();
+        $("#myfileupload").html('<input type="file" id="uploadfile" onchange="readURL(this);" />');
+        $(".removeimg").hide();
+        $(".Choicefile").bind('click', function () {
+            $("#uploadfile").click();
+        });
+        $('.Choicefile').css('background','#0877D8');
+        $('.Choicefile').css('cursor', 'pointer');
+        $(".filename").text("");
+    });
 });
+
+function readURL1(input,thumbimage) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $("#thumbimage1").attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        $("#thumbimage1").show();
+    }
+    else {
+        $("#thumbimage1").attr('src', input.value);
+        $("#thumbimage1").show();
+    }
+    $('.filename1').text($("#uploadfile1").val().split(/\\/)[$("#uploadfile1").val().split(/\\/).length - 1]);
+    $('.Choicefile1').css('cursor', 'default');
+    // $(".Choicefile1").unbind('click');
+    $(".removeimg").show();
+}
+function readURL2(input,thumbimage) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $("#thumbimage2").attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        $("#thumbimage2").show();
+    }
+    else {
+        $("#thumbimage2").attr('src', input.value);
+        $("#thumbimage2").show();
+    }
+    $('.filename2').text($("#uploadfile2").val().split(/\\/)[$("#uploadfile2").val().split(/\\/).length - 1]);
+    $('.Choicefile2').css('cursor', 'default');
+    // $(".Choicefile2").unbind('click');
+    $(".removeimg").show();
+}
+function readURL3(input,thumbimage) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $("#thumbimage3").attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        $("#thumbimage3").show();
+    }
+    else {
+        $("#thumbimage3").attr('src', input.value);
+        $("#thumbimage3").show();
+    }
+    $('.filename3').text($("#uploadfile3").val().split(/\\/)[$("#uploadfile3").val().split(/\\/).length - 1]);
+    $('.Choicefile3').css('cursor', 'default');
+    // $(".Choicefile3").unbind('click');
+    $(".removeimg").show();
+}
 
 function loadItem(id) {
     var str_string = 'flag=loadItemSubCategorie&id='+ id;
@@ -73,7 +167,7 @@ function updateRow(id, cateId, name, description) {
         success: function(dto) {
             if(dto == "success"){
                 onloadSubCategory(cateId);
-                clearFormCate();
+                clearFormProduct();
             } else {
                 alert("Xảy ra lỗi. Vui lòng thử lại");
             }
@@ -96,7 +190,7 @@ function deleteRow(id) {
         success: function(dto) {
             if(dto == "success"){
                 onloadProductList($("#dropdownSubCateList").val());
-                // clearFormCate();
+                clearFormProduct();
             } else {
                 alert("Xảy ra lỗi. Vui lòng thử lại");
             }
@@ -104,12 +198,18 @@ function deleteRow(id) {
     });
 };
 
-function clearFormCate() {
-    $("#txtSubCateId").val("");
-    $("#txtSubCateName").val("");
-    $("#txtSubCateDes").val("");
-    $("#btn-add-subcate").removeClass("undisplayed");
-    $("#btn-update-subcate").addClass("undisplayed");
+function clearFormProduct() {
+    $("#txtProductNameId").val("");
+    $("#txtProductName").val("");
+    $("#txtPrice").val("");
+    $("#txtPromotionPrice").val("");
+    $("#txtSize").val("");
+    $("#txtMaterial").val("");
+    $("#txtColor").val("");
+    $("#txtDescription").val("");
+
+    $("#btn-add-product").removeClass("undisplayed");
+    $("#btn-update-product").addClass("undisplayed");
 };
 
 function onloadDropDownSubCategory () {
@@ -128,7 +228,7 @@ function onloadDropDownSubCategory () {
             }
             $("#dropdownSubCateList")[0].innerHTML = "";
             $("#dropdownSubCateList").append(subCateListHTML);
-            // $("#dropdownCateListAction")[0].innerHTML = $("#dropdownCateList")[0].innerHTML;
+            $("#dropdownSubCateListAction")[0].innerHTML = $("#dropdownSubCateList")[0].innerHTML;
             onloadProductList($("#dropdownSubCateList").val());
         }
     });
@@ -178,7 +278,7 @@ function createTable(pageIndex, data){
                     '<td class="align-vertical">'+addCommas(data[i].price)+'</td>'+
                     '<td class="align-vertical">'+addCommas(data[i].promotion_price)+'</td>'+
                     '<td class="align-vertical">'+data[i].size+'</td>'+
-                    '<td class="align-center"><img class="grid-img" src='+data[i].image+'></td>'+
+                    '<td class="align-center"><img class="grid-img" src='+data[i].image_1+'></td>'+
                     '<td class="align-vertical">'+
                       '<div class="btn-group-action">'+
                         "<a href='javascript:loadItem(" + '"' + data[i].id + '"' + ")' class='fa fa-pencil-square-o btn-action-cate btn-edit-action-cate' title='Chỉnh Sửa'></a>"+
