@@ -1,0 +1,65 @@
+.carousel-view {
+    height: 100%;
+    position: relative;
+}
+
+.carousel-wrapper {
+    height: 100%;
+}
+
+.carousel-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    height: 100%;
+}
+
+.carousel-item {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    font-size: 13px;
+}
+.carousel-item .carousel-item-img {
+    height: 60%;
+    margin: 10px 5px 10px 5px;
+    background:url("../images/ico/bullet.png") no-repeat center center #eee;
+    border-radius: 4px;
+}
+.carousel-item .carousel-item-label {
+    padding: 0px 10px 0px 10px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.carousel-btn {
+    position: absolute;
+    height: 100%;
+    line-height: 200px;
+    width: 50px;
+    top: 0;
+    right: -50px;
+    cursor: pointer;
+}
+.carousel-btn > i{
+    vertical-align: middle;
+    height: 50px;
+    width: 50px;
+    background: url("../images/ico/arrow.png") no-repeat center -150px;
+    display: inline-block;
+}
+.carousel-btn:hover > i{
+    background-position: center -100px;
+}
+.carousel-btn.carousel-prev {
+    left: -50px;
+}
+.carousel-btn.carousel-prev > i{
+    background-position: center -50px;
+}
+.carousel-btn.carousel-prev:hover > i{
+    background-position: center 0px;
+}
