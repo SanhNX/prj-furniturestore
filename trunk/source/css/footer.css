@@ -1,0 +1,122 @@
+.footer {
+    margin-top: 50px;
+    border-top: 1px solid #e8e8e8;
+    position: relative;
+}
+
+/***************************************************/
+.foot-info {
+    font-size: 0;
+    border-top: 1px solid #e8e8e8;
+}
+
+.foot-info .foot-left {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    font-size: 13px;
+}
+
+.foot-info .foot-logo {
+    height: 100px;
+    line-height: 100px;
+    font-size: 30px;
+    text-indent: 30px;
+    background: url("../images/ico/bullet-color-ico.png") no-repeat left center;
+}
+
+.foot-info .foot-desc {
+    padding-bottom: 20px;
+}
+
+.foot-info .foot-right {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    font-size: 13px;
+    text-align: right;
+}
+
+.foot-info .foot-contact-name {
+    height: 100px;
+    line-height: 100px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.foot-info .foot-contact-desc {
+}
+/***************************************************/
+.foot-nav {
+    height: 60px;
+    width: 100%;
+    border-top: 1px solid #e8e8e8;
+    text-align: center;
+}
+
+.foot-nav .foot-social {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    position: absolute;
+}
+
+.foot-nav .foot-copyright {
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+}
+
+.foot-nav .foot-top {
+    display: block;
+    float: right;
+    height: 60px;
+    line-height: 60px;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.foot-social-item {
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+.foot-social-item > a {
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url("../images/ico/social.png") no-repeat;
+}
+#social-facebook{
+    background-position: 0px 0px;
+}
+
+#social-twitter {
+    background-position: 0px -25px;
+}
+
+#social-skype {
+    background-position: 0px -50px;
+}
+
+#social-facebook:hover {
+    background-position: -25px 0px;
+}
+
+#social-twitter:hover {
+    background-position: -25px -25px;
+}
+
+#social-skype:hover {
+    background-position: -25px -50px;
+}
+
+.foot-showroom {
+    height: 200px;
+}

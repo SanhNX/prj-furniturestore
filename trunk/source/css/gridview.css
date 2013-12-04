@@ -8,26 +8,49 @@
 
 .grid-item {
     font-size: 13px;
-    margin: 2px;
-    border-radius: 4px;
-    height: 180px;
-    width: 180px;
+    height: 225px;
+    width: 200px;
     display: inline-block;
-    background: #3bb681;
+    position: relative;
 }
 
 .grid-item-img {
+    height: 150px;
+    background:url("../images/ico/bullet-s.png") no-repeat center center #3bb681;
+    margin: 5px 5px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
 }
 
 .grid-item-label {
+    margin: 0px 5px 0px 0px;
+    padding: 5px;
+    height: 30px;
+    line-height: 15px;
+    overflow: hidden;
+    background-color: #EEE;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 .grid-item-price {
+    height: 20px;
+    line-height: 20px;
+    min-width: 80px;
+    margin: 0px 5px 0px 0px;
+    padding: 5px;
+    border-radius: 0px 0px 4px 4px;
+    text-align: center;
+    top: 130px;
+    left: 3px;
+    color: #FFF;
+    background-color: #CCC;
+    font-weight: bold;
 }
 
 .grid-paging {
     height: 50px;
-    margin: 5px 0px;
+    margin: 10px 0px;
     text-align: center;
 }
 
