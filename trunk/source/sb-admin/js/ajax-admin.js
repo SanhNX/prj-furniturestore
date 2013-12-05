@@ -49,9 +49,13 @@ function loginProcess(e) {
             data: str_string,
             cache: false,
             success: function(dto) {
-                dto = JSON.parse(dto);
+                try{
+                    dto = JSON.parse(dto);
+                }catch(e){
+                    dto = null;
+                }
                 setTimeout(function() {
-                    if (dto.status === 'success') {
+                    if (dto && dto.status === 'success') {
                         setTimeout(function() {
                             $(".admin-progress").addClass("undisplayed");
                             bootbox.alert('<br/><a style="color: rgb(64, 92, 96)">&nbsp&nbsp&nbsp&nbspCongratulation ! You had login success.</a>', function(){

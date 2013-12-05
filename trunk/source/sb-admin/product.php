@@ -146,10 +146,10 @@
                       <label>Hình Ảnh 1</label>  
                       <div class="panel panel-primary">
                         <div class="panel-body align-center">
-                          <!-- <img class="grid-img" src="./images/icon/no-avatar.png"> -->
                           <div class="morris-hover-point filename1" style="color: #0b62a4"></div>
                           <img height="120" width="120" alt="Thumb image" id="thumbimage1" class="margin-bottom-top-10" style="display: none" />
                           <div class="text-right">
+                            <span id="removeimg1" class="label label-danger margin-right-30"  href="javascript:">Xóa</span>
                             <a href="javascript:" class="Choicefile1">Chọn hình ảnh 1 <i class="fa fa-arrow-circle-right"></i></a>
                             <input id="uploadfile1" name="file" class="file undisplayed" type="file" onchange="readURL1(this);"/>
                           </div>
@@ -158,10 +158,10 @@
                       <label>Hình Ảnh 2</label>  
                       <div class="panel panel-primary">
                         <div class="panel-body align-center">
-                          <!-- <img class="grid-img" src="./images/icon/no-avatar.png"> -->
                           <div class="morris-hover-point filename2" style="color: #0b62a4"></div>
                           <img height="120" width="120" alt="Thumb image" id="thumbimage2" class="margin-bottom-top-10" style="display: none" />
                           <div class="text-right">
+                            <span id="removeimg2" class="label label-danger margin-right-30"  href="javascript:">Xóa</span>
                             <a href="javascript:" class="Choicefile2">Chọn hình ảnh 2 <i class="fa fa-arrow-circle-right"></i></a>
                             <input id="uploadfile2" name="file" class="file undisplayed" type="file" onchange="readURL2(this);"/>
                           </div>
@@ -170,10 +170,10 @@
                       <label>Hình Ảnh 3</label>  
                       <div class="panel panel-primary">
                         <div class="panel-body align-center">
-                          <!-- <img class="grid-img" src="./images/icon/no-avatar.png"> -->
                           <div class="morris-hover-point filename3" style="color: #0b62a4"></div>
                           <img height="120" width="120" alt="Thumb image" id="thumbimage3" class="margin-bottom-top-10" style="display: none" />
                           <div class="text-right">
+                            <span id="removeimg3" class="label label-danger margin-right-30"  href="javascript:">Xóa</span>
                             <a href="javascript:" class="Choicefile3">Chọn hình ảnh 3 <i class="fa fa-arrow-circle-right"></i></a>
                             <input id="uploadfile3" name="file" class="file undisplayed" type="file" onchange="readURL3(this);"/>
                           </div>

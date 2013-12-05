@@ -6,6 +6,11 @@ $(document).ready(function() {
         body.animate({scrollTop: 0}, 1000, function(){
             clearFormProduct();
             $("#pnl-add-edit-product").addClass("undisplayed");
+            for (var i = 1; i <= 3; i++) {
+                $("#thumbimage" + i).attr('src', '').hide();
+                $("#removeimg" + i).hide();
+                $(".filename" + i).text("");
+            };
         });
     });
     $('#btn-add-subcate').on('click', function(e) {
@@ -40,6 +45,9 @@ $(document).ready(function() {
 
     $('#btn-addProduct').on('click', function(e) {
         $("#pnl-add-edit-product").removeClass("undisplayed");
+        $("#removeimg1").hide();
+        $("#removeimg2").hide();
+        $("#removeimg3").hide();
         var body = $("body");
         // var top = body.scrollTop() // Get position of the body
         // if(top!=0)
@@ -65,16 +73,20 @@ $(document).ready(function() {
         
     });
 
-    $(".removeimg").click(function () {
+    $("#removeimg1").click(function () {
+        $("#thumbimage1").attr('src', '').hide();
+        $("#removeimg1").hide();
+        $(".filename1").text("");
+    });
+    $("#removeimg2").click(function () {
+        $("#thumbimage2").attr('src', '').hide();
+        $("#removeimg2").hide();
+        $(".filename2").text("");
+    });
+    $("#removeimg3").click(function () {
         $("#thumbimage3").attr('src', '').hide();
-        $("#myfileupload").html('<input type="file" id="uploadfile" onchange="readURL(this);" />');
-        $(".removeimg").hide();
-        $(".Choicefile").bind('click', function () {
-            $("#uploadfile").click();
-        });
-        $('.Choicefile').css('background','#0877D8');
-        $('.Choicefile').css('cursor', 'pointer');
-        $(".filename").text("");
+        $("#removeimg3").hide();
+        $(".filename3").text("");
     });
 });
 
@@ -93,7 +105,7 @@ function readURL1(input,thumbimage) {
     }
     $('.filename1').text($("#uploadfile1").val().split(/\\/)[$("#uploadfile1").val().split(/\\/).length - 1]);
     $('.Choicefile1').css('cursor', 'default');
-    // $(".Choicefile1").unbind('click');
+    $("#removeimg1").show();
     $(".removeimg").show();
 }
 function readURL2(input,thumbimage) {
@@ -111,7 +123,7 @@ function readURL2(input,thumbimage) {
     }
     $('.filename2').text($("#uploadfile2").val().split(/\\/)[$("#uploadfile2").val().split(/\\/).length - 1]);
     $('.Choicefile2').css('cursor', 'default');
-    // $(".Choicefile2").unbind('click');
+    $("#removeimg2").show();
     $(".removeimg").show();
 }
 function readURL3(input,thumbimage) {
@@ -129,7 +141,7 @@ function readURL3(input,thumbimage) {
     }
     $('.filename3').text($("#uploadfile3").val().split(/\\/)[$("#uploadfile3").val().split(/\\/).length - 1]);
     $('.Choicefile3').css('cursor', 'default');
-    // $(".Choicefile3").unbind('click');
+    $("#removeimg3").show();
     $(".removeimg").show();
 }
 
