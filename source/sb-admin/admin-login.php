@@ -28,7 +28,7 @@
                                 <h1>LOG IN FORM OF ADMINISTRATOR</h1>
                                 <p> 
                                     <label for="txtemail" class="uname" data-icon="u" > Your Email </label>
-                                    <input id="txtemail" name="txtemail" type="text" placeholder="mymail@mail.com"/>
+                                    <input id="txtemail" name="txtemail" type="text" placeholder="mymail@mail.com" onKeyPress="enterpressalert(event, this)"/>
                                 </p>
                                 <p> 
                                     <label for="txtpass" class="youpasswd" data-icon="p"> Your Password </label>
