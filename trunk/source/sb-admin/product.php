@@ -35,7 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">SB Admin</a>
+          <a class="navbar-brand" href="index.php" style="text-align: center;">▂ ▃ ▅ ▆ █ &nbsp&nbsp ĐỒ GỖ NỘI THẤT CAO CẤP TRẦN GIA VIỆT &nbsp&nbsp █ ▆ ▅ ▃ ▂</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
