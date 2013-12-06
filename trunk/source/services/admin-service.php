@@ -89,7 +89,7 @@ else if($flag == 'getAllSubCategories'){
         echo 'success';
     }
 }
-// ------------------ SUB CATEGORY --------------------------
+// ------------------ PRODUCT --------------------------
 else if($flag == 'getAllProductBySubCateId'){
     $products = getAllProductBySubCateId($_POST['subCateId']);
     // return value which function call ajax receive response
@@ -102,6 +102,39 @@ else if($flag == 'getAllProductBySubCateId'){
     } else {
         echo 'success';
     }
+} else if($flag == 'addProduct'){
+    $subcateId = $_POST['subcateId'];
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $promotion_price = $_POST['promotionPrice'];
+    $size = $_POST['size'];
+    $material = $_POST['material'];
+    $color = $_POST['color'];
+    $description = $_POST['description'];
+    $path = '../images/prod_image/';
+    $image_1 = $_FILES["file1"]["name"] ? $path . $_FILES["file1"]["name"] : null;
+    $image_2 = $_FILES["file2"]["name"] ? $path . $_FILES["file2"]["name"] : null;
+    $image_3 = $_FILES["file3"]["name"] ? $path . $_FILES["file3"]["name"] : null;
+    // echo $subcateId.$name.$price.$promotion_price.$size.$material.$color.$description.$image_1.$image_2.$image_3;
+    $status = insertProduct($subcateId, $name, $price, $promotion_price, $image_1, 
+    $image_2, $image_3, $size, $material, $color, $description);
+    if($status == -1){
+        echo 'fail';
+    } else {
+        $dirTemp = str_replace('BLL', '', getcwd()) . "images/prod_image/";
+        $dirTemp = str_replace('services', '', getcwd()) . "images/prod_image/";
+        for ($i=1; $i <= 3; $i++) { 
+            $dir = str_replace("\\", "/", $dirTemp . $_FILES["file" . $i]["name"]);
+            move_uploaded_file($_FILES["file" . $i]["tmp_name"], $dir);
+        }
+        $json = array('status' => 'success', 'subcateId' => $subcateId);
+        echo json_encode($json);
+    }
+    // $dirTemp = str_replace('BLL', '', getcwd()) . "images/prod_image/";
+    // $dirTemp = str_replace('services', '', getcwd()) . "images/prod_image/";
+    // $dir = str_replace("\\", "/", $dirTemp . $_FILES["file1"]["name"]);
+    // echo move_uploaded_file($_FILES["file1"]["tmp_name"], $dir);
+    // echo $_FILES["file1"]["tmp_name"]. $dir;
 }
 
 // ---------------- END REQUEST WITH FLAG : loadHorizontalTabs ----------------

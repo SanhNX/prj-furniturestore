@@ -2,27 +2,29 @@ var data = null;
 
 $(document).ready(function() {
     $('#btn-cancel-product').on('click', function(e) {
-        var body = $("body");
-        body.animate({scrollTop: 0}, 1000, function(){
-            clearFormProduct();
-            $("#pnl-add-edit-product").addClass("undisplayed");
-            for (var i = 1; i <= 3; i++) {
-                $("#thumbimage" + i).attr('src', '').hide();
-                $("#removeimg" + i).hide();
-                $(".filename" + i).text("");
-            };
-        });
+        cancelProduct();
     });
-    $('#btn-add-subcate').on('click', function(e) {
-        var name = $("#txtSubCateName").val();
-        var cateId = $("#dropdownCateListAction").val();
-        var description = $("#txtSubCateDes").val();
-        var error = validateSubCategoryForm(name, description);
+    $('#btn-add-product').on('click', function(e) {
+        var subcateId = $("#dropdownSubCateListAction").val();
+        var name = $("#txtProductName").val();
+        var price = $("#txtPrice").val();
+        var promotion_price = $("#txtPromotionPrice").val();
+        var size = $("#txtSize").val();
+        var material = $("#txtMaterial").val();
+        var color = $("#txtColor").val();
+        var description = $("#txtDescription").val();
+        var image_1 = $(".filename1").text();
+        var image_2 = $(".filename2").text();
+        var image_3 = $(".filename3").text();
+        $("#flag").val("addProduct");
+        var error = validateProductForm(name, price, promotion_price, size, material, color, description, image_1, image_2, image_3);
         if(error != ""){
             alert(error);
             return;
         }
-        var str_string = 'flag=addSubCategorie&cateId='+ cateId +'&name='+ name+'&description='+ description;
+        /*var str_string = 'flag=addProduct&subcateId='+ subcateId +'&name='+ name +'&price='+ price +'&promotion_price='+ promotion_price 
+        +'&size='+ size +'&material='+ material +'&color='+ color +'&description='+ description
+        +'&image_1='+ image_1 +'&image_2='+ image_2 +'&image_3='+ image_3;
         $.ajax({
             type: "POST",
             url: "../services/admin-service.php",
@@ -30,20 +32,21 @@ $(document).ready(function() {
             cache: false,
             success: function(dto) {
                 if(dto == "success"){
-                    onloadSubCategory(cateId);
-                    $("#dropdownCateList").val(cateId)
+                    onloadProductList(subcateId);
+                    $("#dropdownSubCateList").val(subcateId)
                 } else {
                     alert("Xảy ra lỗi. Vui lòng thử lại");
                 }
                 
             }
-        });
+        });*/
+        $("#createProductForm").submit();
     });
     $('#btn-update-subcate').on('click', function(e) {
         updateRow($("#txtSubCateId").val(), $("#dropdownCateListAction").val(), $("#txtSubCateName").val(), $("#txtSubCateDes").val())
     });
 
-    $('#btn-addProduct').on('click', function(e) {
+    $('#btn-show-panel-addProduct').on('click', function(e) {
         $("#pnl-add-edit-product").removeClass("undisplayed");
         $("#removeimg1").hide();
         $("#removeimg2").hide();
@@ -89,6 +92,61 @@ $(document).ready(function() {
         $(".filename3").text("");
     });
 });
+
+function cancelProduct() {
+    var body = $("body");
+    body.animate({scrollTop: 0}, 1000, function(){
+        clearFormProduct();
+        $("#pnl-add-edit-product").addClass("undisplayed");
+        for (var i = 1; i <= 3; i++) {
+            $("#thumbimage" + i).attr('src', '').hide();
+            $("#removeimg" + i).hide();
+            $(".filename" + i).text("");
+        };
+    });
+}
+
+function startResCallback() {
+    // viết code khi click nút upload và bắt đầu upload.
+
+}
+function completeResCallback(dto) {
+// viết code xử lý sau khi đã upload xong,
+    var data;
+    try{
+        data = JSON.parse(dto);
+    }catch(e){
+        data = null;
+    }
+    if(data && data.status == "success"){
+        // Existing object
+        var obj = {
+            notify: function() {
+              alert( "Đã tạo thành công ! Bấm [OK] để tải lại trang.");
+            },
+            redirect: function() {
+                cancelProduct();
+              onloadProductList(data.subcateId);
+                $("#dropdownSubCateList").val(data.subcateId);
+            }
+        },
+        // Create a Deferred
+        defer = $.Deferred();
+         
+        // Set object as a promise
+        defer.promise(obj);
+         
+        // Resolve the deferred
+        defer.resolve();
+         
+        // Use the object as a Promise
+        obj.done(function() {
+          obj.notify(); 
+        }).redirect();
+    } else {
+        alert("Xảy ra lỗi. Vui lòng thử lại");
+    }
+}
 
 function readURL1(input,thumbimage) {
     if (input.files && input.files[0]) {
@@ -247,22 +305,27 @@ function onloadDropDownSubCategory () {
 };
 
 function createPaging(list){
-    var totalPage = 0;
-    var tempPage = list.length/10;
-    totalPage = tempPage > Math.round(tempPage) ? Math.floor(tempPage) + 1 : Math.round(tempPage);
-    $("#paging-sub-category")[0].innerHTML = "";
-    if(totalPage === 1){
-        return;
-    }
-    $("#paging-sub-category")[0].innerHTML += '<li><a>«</a></li>'; // class="disabled"
-    for (var i = 1; i <= totalPage; i++) {
-        var item = "<li id='paging_"+ i +"' class='paging'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
-        if(i == 1){
-            var item = "<li id='paging_"+ i +"' class='paging active'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
+    if(list){
+        var totalPage = 0;
+        var tempPage = list.length/10;
+        totalPage = tempPage > Math.round(tempPage) ? Math.floor(tempPage) + 1 : Math.round(tempPage);
+        $("#paging-sub-category")[0].innerHTML = "";
+        $("#panel-no-content-product").addClass("undisplayed");
+        if(totalPage === 1){
+            return;
         }
-        $("#paging-sub-category")[0].innerHTML += item; 
-    };
-    $("#paging-sub-category")[0].innerHTML += '<li><a>»</a></li>'; 
+        $("#paging-sub-category")[0].innerHTML += '<li><a>«</a></li>'; // class="disabled"
+        for (var i = 1; i <= totalPage; i++) {
+            var item = "<li id='paging_"+ i +"' class='paging'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
+            if(i == 1){
+                var item = "<li id='paging_"+ i +"' class='paging active'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
+            }
+            $("#paging-sub-category")[0].innerHTML += item; 
+        };
+        $("#paging-sub-category")[0].innerHTML += '<li><a>»</a></li>';
+    } else {
+        $("#panel-no-content-product").removeClass("undisplayed");
+    }
 };
 
 function loadPaging(pageIndex){
@@ -284,13 +347,14 @@ function createTable(pageIndex, data){
     index = (pageIndex * 10) - 10;
     for (var i = index; i <= (pageIndex*10) - 1; i++) {
         if(data[i]){
+            var img = data[i].image_1 ? data[i].image_1 : (data[i].image_2 ? data[i].image_2 : data[i].image_3);
             var cateItemHTML = '<tr><td class="align-vertical">'+ (data[i].id) +'</td>'+
                     '<td class="align-vertical">'+ (data[i].name.length > 20 ? (data[i].name.substr(0, 19) + "...") : data[i].name )+'</td>'+
                     // '<td>'+data[i].name +'</td>'+
                     '<td class="align-vertical">'+addCommas(data[i].price)+'</td>'+
                     '<td class="align-vertical">'+addCommas(data[i].promotion_price)+'</td>'+
                     '<td class="align-vertical">'+data[i].size+'</td>'+
-                    '<td class="align-center"><img class="grid-img" src='+data[i].image_1+'></td>'+
+                    '<td class="align-center"><img height="120" width="120" class="grid-img" src='+img+'></td>'+
                     '<td class="align-vertical">'+
                       '<div class="btn-group-action">'+
                         "<a href='javascript:loadItem(" + '"' + data[i].id + '"' + ")' class='fa fa-pencil-square-o btn-action-cate btn-edit-action-cate' title='Chỉnh Sửa'></a>"+
