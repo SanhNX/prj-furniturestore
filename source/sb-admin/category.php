@@ -90,15 +90,10 @@
                   </tr> -->
                 </tbody>
               </table>
-              <ul class="pagination pagination-sm" style="margin-left: 150px;">
-                <li class="disabled"><a href="#">«</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">»</a></li>
-              </ul>
+              <div id="panel-no-content-category" class="alert alert-info alert-dismissable undisplayed" style="text-align: center;">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                - - - - - - - - Hiện tại vẫn chưa có danh mục nào. - - - - - - - -
+              </div>
             </div>
           </div>
           <div class="col-lg-6">
