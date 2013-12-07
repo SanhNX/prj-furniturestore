@@ -1,0 +1,72 @@
+.gallery-view {
+    font-size: 0;
+    display: inline-block;
+    position: relative;
+}
+
+.gallery-preview {
+    width: 400px;
+    height: 250px;
+    border-radius: 4px;
+    border: 1px solid #EEE;
+    padding: 10px;
+}
+
+.gallery-img {
+    background: url("../images/ico/bullet.png") center #3bb681;
+    height: 100%;
+}
+
+.gallery-list {
+    list-style: none;
+    padding: 0;
+    height: 80px;
+    margin: 10px 0px 0px 0px;
+}
+
+.gallery-list .gallery-item {
+    height: 100%;
+    display: inline-block;
+    width: 25%;
+}
+
+.gallery-list .gallery-item .gallery-item-img {
+    margin: 0px 3px;
+    background: url("../images/ico/bullet-s.png") repeat center top #eee;
+    border-radius: 2px;
+    height: 100%;
+}
+
+.gallery-btn {
+    position: absolute;
+    height: 80px;
+    line-height: 80px;
+    width: 50px;
+    right: -50px;
+    cursor: pointer;
+    bottom: 0px;
+}
+
+.gallery-btn > i {
+    vertical-align: middle;
+    height: 50px;
+    width: 50px;
+    background: url("../images/ico/arrow.png") no-repeat center -150px;
+    display: inline-block;
+}
+
+.gallery-btn:hover > i {
+    background-position: center -100px;
+}
+
+.gallery-btn.prev {
+    left: -50px;
+}
+
+.gallery-btn.prev > i {
+    background-position: center -50px;
+}
+
+.gallery-btn.prev:hover > i {
+    background-position: center 0px;
+}
