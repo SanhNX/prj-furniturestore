@@ -46,6 +46,13 @@ body {
     font-size: 16px;
     color: #222222;
 }
+.light-title{
+    font-family: "Segoe UI light";
+    font-size: 30px;
+}
+.text{
+    font-size: 13px;
+}
 .highlight{
     color: #3bb681;
 }
@@ -61,4 +68,17 @@ body {
     display: inline-block;
     vertical-align: top;
     font-size: 15px;
+}
+
+.detail-panel {
+    font-size: 0;
+}
+
+.detail-view {
+    font-size: 13px;
+    width: 350px;
+    height: 270px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
 }
