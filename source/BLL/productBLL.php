@@ -12,7 +12,7 @@ function getAllProduct() {
     while ($seletedItem = mysql_fetch_array($queryResult)) {
         $item = new Product();
         $item->id = $seletedItem['id'];
-		$item->subcateId = $seletedItem['subcateId'];
+		$item->subcateId = $seletedItem['subcateid'];
         $item->name = $seletedItem['name'];
         $item->price = $seletedItem['price'];
         $item->promotion_price = $seletedItem['promotion_price'];
@@ -42,7 +42,7 @@ function getAllProductBySubCateId ($subcateid) {
     while ($seletedItem = mysql_fetch_array($queryResult)) {
         $item = new Product();
         $item->id = $seletedItem['id'];
-        $item->subcateId = $seletedItem['subcateId'];
+        $item->subcateId = $seletedItem['subcateid'];
         $item->name = $seletedItem['name'];
         $item->price = $seletedItem['price'];
         $item->promotion_price = $seletedItem['promotion_price'];
@@ -69,7 +69,7 @@ function getProductById ($id) {
     $seletedItem = mysql_fetch_array($queryResult);
     $item = new Product();
     $item->id = $seletedItem['id'];
-    $item->subcateId = $seletedItem['subcateId'];
+    $item->subcateId = $seletedItem['subcateid'];
     $item->name = $seletedItem['name'];
     $item->price = $seletedItem['price'];
     $item->promotion_price = $seletedItem['promotion_price'];

@@ -94,6 +94,10 @@ else if($flag == 'getAllProductBySubCateId'){
     $products = getAllProductBySubCateId($_POST['subCateId']);
     // return value which function call ajax receive response
     echo json_encode($products);
+} else if($flag == 'loadItemProduct') {
+    $product = getProductById($_POST['id']);
+    // return value which function call ajax receive response
+    echo json_encode($product);
 } else if($flag == 'deleteProduct'){
     $id = $_POST['id'];
     $status = deleteProductById($id);
@@ -135,6 +139,27 @@ else if($flag == 'getAllProductBySubCateId'){
     // $dir = str_replace("\\", "/", $dirTemp . $_FILES["file1"]["name"]);
     // echo move_uploaded_file($_FILES["file1"]["tmp_name"], $dir);
     // echo $_FILES["file1"]["tmp_name"]. $dir;
+} else if($flag == 'updateProduct'){
+    $id = $_POST['id'];
+    $subcateId = $_POST['subcateId'];
+    $name = $_POST['name'];
+    $price = $_POST['price'];
+    $promotion_price = $_POST['promotion_price'];
+    $size = $_POST['size'];
+    $material = $_POST['material'];
+    $color = $_POST['color'];
+    $path = '../images/prod_image/';
+    $image_1 = $_POST['image_1'] ? $path . $_POST['image_1'] : null;
+    $image_2 = $_POST['image_2'] ? $path . $_POST['image_2'] : null;
+    $image_3 = $_POST['image_3'] ? $path . $_POST['image_3'] : null;
+    $description = $_POST['description'];
+    $status = updateProductById ($id, $subcateId, $name, $price, $promotion_price, $image_1, $image_2, $image_3, $size, $material, $color, $description);
+    if($status == -1){
+        echo 'fail';
+    } else {
+        $json = array('status' => 'success', 'subcateId' => $subcateId);
+        echo json_encode($json);
+    }
 }
 
 // ---------------- END REQUEST WITH FLAG : loadHorizontalTabs ----------------
