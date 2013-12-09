@@ -29,3 +29,9 @@
     background: none;
 }
 
+.nav-item > a {
+    background: none;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
