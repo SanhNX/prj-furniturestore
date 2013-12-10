@@ -89,7 +89,7 @@ function deleteRow(id) {
                 onloadCate();
                 clearFormCate();
             } else {
-                alert("Xảy ra lỗi. Vui lòng thử lại");
+                alert("Xảy ra lỗi :\n\n • Loại danh mục đang được sử dụng.\n\n • Vui lòng thử lại sau khi xóa các loại sản phẩm phụ thuộc");
             }
         }
     });

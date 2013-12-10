@@ -102,8 +102,10 @@ function insertProduct ($subcateId, $name, $price, $promotion_price, $image_1,
 
 function updateProductById ($id, $subcateId, $name, $price, $promotion_price, $image_1, 
     $image_2, $image_3, $size, $material, $color, $description){
-    $sql = " UPDATE tbl_product SET subcateid = '$subcateId', name = '$name', price = '$price', promotion_price = '$promotion_price', 
-    image_1 = '$image_1', image_2 = '$image_2', image_3 = '$image_3', size = '$size', 
+    $temp_image_1 = $image_1 ? ", image_1 = '$image_1'" : "" ;
+    $temp_image_2 = $image_2 ? ", image_2 = '$image_2'" : "" ;
+    $temp_image_3 = $image_3 ? ", image_3 = '$image_3'" : "" ;
+    $sql = " UPDATE tbl_product SET subcateid = '$subcateId', name = '$name', price = '$price', promotion_price = '$promotion_price'".$temp_image_1.$temp_image_2.$temp_image_3.", size = '$size', 
     material = '$material', color = '$color', description = '$description' WHERE id = '$id'  ";
     $queryResult = mysql_query($sql) or die(mysql_error());
     

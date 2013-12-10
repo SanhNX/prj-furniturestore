@@ -140,26 +140,33 @@ else if($flag == 'getAllProductBySubCateId'){
     // echo move_uploaded_file($_FILES["file1"]["tmp_name"], $dir);
     // echo $_FILES["file1"]["tmp_name"]. $dir;
 } else if($flag == 'updateProduct'){
-    $id = $_POST['id'];
+    $id = $_POST['productId'];
     $subcateId = $_POST['subcateId'];
     $name = $_POST['name'];
     $price = $_POST['price'];
-    $promotion_price = $_POST['promotion_price'];
+    $promotion_price = $_POST['promotionPrice'];
     $size = $_POST['size'];
     $material = $_POST['material'];
     $color = $_POST['color'];
-    $path = '../images/prod_image/';
-    $image_1 = $_POST['image_1'] ? $path . $_POST['image_1'] : null;
-    $image_2 = $_POST['image_2'] ? $path . $_POST['image_2'] : null;
-    $image_3 = $_POST['image_3'] ? $path . $_POST['image_3'] : null;
     $description = $_POST['description'];
+    $path = '../images/prod_image/';
+    $image_1 = $_FILES["file1"]["name"] ? $path . $_FILES["file1"]["name"] : null;
+    $image_2 = $_FILES["file2"]["name"] ? $path . $_FILES["file2"]["name"] : null;
+    $image_3 = $_FILES["file3"]["name"] ? $path . $_FILES["file3"]["name"] : null;
     $status = updateProductById ($id, $subcateId, $name, $price, $promotion_price, $image_1, $image_2, $image_3, $size, $material, $color, $description);
     if($status == -1){
         echo 'fail';
     } else {
+        $dirTemp = str_replace('BLL', '', getcwd()) . "images/prod_image/";
+        $dirTemp = str_replace('services', '', getcwd()) . "images/prod_image/";
+        for ($i=1; $i <= 3; $i++) { 
+            $dir = str_replace("\\", "/", $dirTemp . $_FILES["file" . $i]["name"]);
+            move_uploaded_file($_FILES["file" . $i]["tmp_name"], $dir);
+        }
         $json = array('status' => 'success', 'subcateId' => $subcateId);
         echo json_encode($json);
     }
+    // echo $id.$subcateId.$name.$price.$promotion_price.$size.$material.$color.$description.$image_1.$image_2.$image_3;
 }
 
 // ---------------- END REQUEST WITH FLAG : loadHorizontalTabs ----------------
