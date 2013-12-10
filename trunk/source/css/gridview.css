@@ -14,13 +14,30 @@
     position: relative;
 }
 
-.grid-item-img {
+.grid-item-img-wrap {
     height: 150px;
     background:url("../images/ico/bullet-s.png") no-repeat center center #3bb681;
     margin: 5px 5px 0px 0px;
     border-radius: 4px 4px 0px 0px;
+    overflow: hidden;
 }
 
+.grid-item-img {
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    box-shadow: inset 0px 2px 10px -6px #000;
+    display: inline-block;
+    transition: all 200ms ease-in-out;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+}
+.grid-item-img:hover {
+    width: 230px;
+    margin-left: -15px;
+}
 .grid-item-label {
     margin: 0px 5px 0px 0px;
     padding: 5px;
