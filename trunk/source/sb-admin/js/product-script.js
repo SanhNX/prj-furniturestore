@@ -384,20 +384,20 @@ function createPaging(list){
         var totalPage = 0;
         var tempPage = list.length/10;
         totalPage = tempPage > Math.round(tempPage) ? Math.floor(tempPage) + 1 : Math.round(tempPage);
-        $("#paging-sub-category")[0].innerHTML = "";
+        $("#paging-product")[0].innerHTML = "";
         $("#panel-no-content-product").addClass("undisplayed");
         if(totalPage === 1){
             return;
         }
-        $("#paging-sub-category")[0].innerHTML += '<li><a>«</a></li>'; // class="disabled"
+        $("#paging-product")[0].innerHTML += '<li><a>«</a></li>'; // class="disabled"
         for (var i = 1; i <= totalPage; i++) {
             var item = "<li id='paging_"+ i +"' class='paging'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
             if(i == 1){
                 var item = "<li id='paging_"+ i +"' class='paging active'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
             }
-            $("#paging-sub-category")[0].innerHTML += item; 
+            $("#paging-product")[0].innerHTML += item; 
         };
-        $("#paging-sub-category")[0].innerHTML += '<li><a>»</a></li>';
+        $("#paging-product")[0].innerHTML += '<li><a>»</a></li>';
     } else {
         $("#panel-no-content-product").removeClass("undisplayed");
     }

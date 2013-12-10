@@ -20,6 +20,7 @@
     <!-- Page Specific JS -->
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="js/ajax-admin.js"></script>
+    <script type="text/javascript" src="js/index-script.js"></script>
   </head>
 
   <body>
@@ -55,36 +56,42 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Dashboard <small>Statistics Overview</small></h1>
+            <!-- <h1>Thống kê <small> số lượng</small></h1> -->
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
+              <li><a href="index.php"><i class="fa fa-home"></i> Bảng Điều Khiển</a></li>
+              <li class="active"><i class="fa fa-dashboard"></i> Thống Kê Số Lượng</li>
             </ol>
             <div class="alert alert-success alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              Welcome to SB Admin by <a class="alert-link" href="http://startbootstrap.com">Start Bootstrap</a>! Feel free to use this template for your admin needs! We are using a few different plugins to handle the dynamic tables and charts, so make sure you check out the necessary documentation links provided.
+              Chào mừng bạn đến với trang quản lý của <a class="alert-link" href="index.php">ĐỒ GỖ NỘI THẤT CAO CẤP TRẦN GIA VIỆT. </a>
+              Bạn có thể xem qua sơ bộ về tình hình : </br>
+              • DANH MỤC </br>
+              • LOẠI SẢN PHẨM </br>
+              • DANH SÁCH SẢN PHẨM </br>
+              của cửa hàng ở phía dưới, sau đó chọn phần xử lý!
             </div>
           </div>
         </div><!-- /.row -->
 
         <div class="row">
-          <div class="col-lg-3">
+          <div class="col-lg-4">
             <div class="panel panel-info">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-comments fa-5x"></i>
+                    <i class="fa fa-list-ol fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">456</p>
-                    <p class="announcement-text">New Mentions!</p>
+                    <p id="txtCateCounter" class="announcement-heading">0</p>
+                    <p class="announcement-text">DANH MỤC</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+              <a href="category.php">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      View Mentions
+                      Quản lý danh mục
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -94,26 +101,26 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-3">
+          <div class="col-lg-4">
             <div class="panel panel-warning">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-check fa-5x"></i>
+                    <i class="fa fa-table fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">12</p>
-                    <p class="announcement-text">To-Do Items</p>
+                    <p id="txtSubCateCounter" class="announcement-heading">0</p>
+                    <p class="announcement-text">LOẠI SẢN PHẨM</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+              <a href="sub-category.php">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
-                    <div class="col-xs-6">
-                      Complete Tasks
+                    <div class="col-xs-6" style="width: 70%;">
+                      Quản lý loại sản phẩm
                     </div>
-                    <div class="col-xs-6 text-right">
+                    <div class="col-xs-6 text-right" style="width: 30%;">
                       <i class="fa fa-arrow-circle-right"></i>
                     </div>
                   </div>
@@ -121,51 +128,25 @@
               </a>
             </div>
           </div>
-          <div class="col-lg-3">
-            <div class="panel panel-danger">
-              <div class="panel-heading">
-                <div class="row">
-                  <div class="col-xs-6">
-                    <i class="fa fa-tasks fa-5x"></i>
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">18</p>
-                    <p class="announcement-text">Crawl Errors</p>
-                  </div>
-                </div>
-              </div>
-              <a href="#">
-                <div class="panel-footer announcement-bottom">
-                  <div class="row">
-                    <div class="col-xs-6">
-                      Fix Issues
-                    </div>
-                    <div class="col-xs-6 text-right">
-                      <i class="fa fa-arrow-circle-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-3">
+          
+          <div class="col-lg-4">
             <div class="panel panel-success">
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-comments fa-5x"></i>
+                    <i class="fa fa-picture-o fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">56</p>
-                    <p class="announcement-text">New Orders!</p>
+                    <p id="txtProductCounter" class="announcement-heading">0</p>
+                    <p class="announcement-text">SẢN PHẨM</p>
                   </div>
                 </div>
               </div>
-              <a href="#">
+              <a href="product.php">
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Complete Orders
+                      Quản lý sản phẩm
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>

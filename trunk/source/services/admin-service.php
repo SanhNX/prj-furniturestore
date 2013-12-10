@@ -9,8 +9,14 @@ include '../BLL/productBLL.php';
 
 // ---------------- REQUEST WITH FLAG : loadHorizontalTabs --------------------
 $flag = $_POST['flag'];
-
-if($flag == 'getAllCategories'){
+if($flag == 'counterAll'){
+    $numCate = count(getAllCategories());
+    $numSubCate = count(getAllSubCategories());
+    $numProd = count(getAllProduct());
+    // return value which function call ajax receive response
+    $json = array('numCate' => $numCate, 'numSubCate' => $numSubCate, 'numProd' => $numProd);
+    echo json_encode($json);
+} else if($flag == 'getAllCategories'){
     $categories = getAllCategories();
     // return value which function call ajax receive response
     echo json_encode($categories);
