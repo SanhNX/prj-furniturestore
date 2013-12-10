@@ -54,10 +54,10 @@
 
         <div class="row">
           <div class="col-lg-12">
-            <h1>Administrator <small> Panel</small></h1>
+            <!-- <h1>Administrator <small> Panel</small></h1> -->
             <ol class="breadcrumb">
-              <li><a href="index.html"><i class="fa fa-dashboard"></i> Bảng Điều Khiển</a></li>
-              <li class="active"><i class="fa fa-table"></i> Danh Mục</li>
+              <li><a href="index.html"><i class="fa fa-home"></i> Bảng Điều Khiển</a></li>
+              <li class="active"><i class="fa fa-picture-o"></i> Sản Phẩm</li>
             </ol>
           </div>
         </div><!-- /.row -->
@@ -96,7 +96,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 - - - - - - - - - - Hiện tại vẫn chưa có sản phẩm. - - - - - - - - - -
               </div>
-              <ul id="paging-sub-category" class="pagination pagination-sm" style="margin-left: 150px;"></ul>
+              <ul id="paging-product" class="pagination pagination-sm" style="margin-left: 150px;"></ul>
             </div>
         </div><!-- /.row -->
         <form id="createProductForm" name="createProductForm" action="../services/admin-service.php" 
