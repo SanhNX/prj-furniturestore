@@ -98,7 +98,7 @@ function deleteRow(id) {
                 onloadSubCategory($("#dropdownCateList").val());
                 clearFormCate();
             } else {
-                alert("Xảy ra lỗi. Vui lòng thử lại");
+                alert("Xảy ra lỗi :\n\n • Loại sản phẩm đang được sử dụng.\n\n • Vui lòng thử lại sau khi xóa các sản phẩm phụ thuộc");
             }
         }
     });

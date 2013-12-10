@@ -62,8 +62,8 @@ function validateProductForm(name, price, promotion_price, size, material, color
        error += '• Mô tả phải bé hơn hoặc bằng 200 ký tự \n\n';
     }
 
-    if (image_1 === "" && image_2 === "" && image_3 === "") {
-       error += '• Phải chọn ít nhất 1 hình đại diện cho sản phẩm \n\n';
+    if (image_1 === "" || image_2 === "" || image_3 === "") {
+       error += '• Phải chọn đủ 3 hình đại diện cho sản phẩm \n\n';
     }
 
     return error;

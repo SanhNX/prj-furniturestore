@@ -55,13 +55,14 @@ $(document).ready(function() {
         var image_1 = $(".filename1").text();
         var image_2 = $(".filename2").text();
         var image_3 = $(".filename3").text();
-        $("#flag").val("addProduct");
+        $("#flag").val("updateProduct");
         var error = validateProductForm(name, price, promotion_price, size, material, color, description, image_1, image_2, image_3);
         if(error != ""){
             alert(error);
             return;
         }
-        updateRow(id, subcateId, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description);
+        $("#createProductForm").submit();
+        // updateRow(id, subcateId, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description);
     });
 
     $('#btn-show-panel-addProduct').on('click', function(e) {
@@ -251,7 +252,7 @@ function loadItem(id) {
                     $(".filename" + i).text(replaceStringImage(temp_img));
                     $("#thumbimage" + i).attr('src', temp_img ? temp_img : "");
                     $("#thumbimage" + i).show();
-                    $("#removeimg" + i).show();
+                    // $("#removeimg" + i).show();
                 }
                 $("#btn-add-product").addClass("undisplayed");
                 $("#btn-update-product").removeClass("undisplayed");
@@ -421,14 +422,18 @@ function createTable(pageIndex, data){
     index = (pageIndex * 10) - 10;
     for (var i = index; i <= (pageIndex*10) - 1; i++) {
         if(data[i]){
-            var img = data[i].image_1 ? data[i].image_1 : (data[i].image_2 ? data[i].image_2 : data[i].image_3);
+            // var img = data[i].image_1 ? data[i].image_1 : (data[i].image_2 ? data[i].image_2 : data[i].image_3);
             var cateItemHTML = '<tr><td class="align-vertical">'+ (data[i].id) +'</td>'+
                     '<td class="align-vertical">'+ (data[i].name.length > 20 ? (data[i].name.substr(0, 19) + "...") : data[i].name )+'</td>'+
                     // '<td>'+data[i].name +'</td>'+
                     '<td class="align-vertical">'+addCommas(data[i].price)+'</td>'+
                     '<td class="align-vertical">'+addCommas(data[i].promotion_price)+'</td>'+
                     '<td class="align-vertical">'+data[i].size+'</td>'+
-                    '<td class="align-center"><img height="120" width="120" class="grid-img" src='+img+'></td>'+
+                    '<td class="align-center">'+
+                    '<img height="60" width="60" class="grid-img img-hover" style="margin-right: 5px;" src='+data[i].image_1+'>'+
+                    '<img height="60" width="60" class="grid-img img-hover" style="margin-right: 5px;" src='+data[i].image_2+'>'+
+                    '<img height="60" width="60" class="grid-img img-hover" style="margin-right: 5px;" src='+data[i].image_3+'>'+
+                    '</td>'+
                     '<td class="align-vertical">'+
                       '<div class="btn-group-action">'+
                         "<a href='javascript:loadItem(" + '"' + data[i].id + '"' + ")' class='fa fa-pencil-square-o btn-action-cate btn-edit-action-cate' title='Chỉnh Sửa'></a>"+
