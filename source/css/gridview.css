@@ -11,7 +11,13 @@
     height: 225px;
     width: 200px;
     display: inline-block;
+    cursor: pointer;
     position: relative;
+}
+.grid-item > a {
+    background: none;
+    text-decoration: none;
+    color: #222;
 }
 
 .grid-item-img-wrap {
@@ -34,7 +40,7 @@
     -moz-transition: all 200ms ease-in-out;
     -o-transition: all 200ms ease-in-out;
 }
-.grid-item-img:hover {
+.grid-item:hover .grid-item-img {
     width: 230px;
     margin-left: -15px;
 }
