@@ -3,8 +3,44 @@
     margin: 0;
     padding: 0;
 }
-.menu-item{
+
+.menu-item {
     height: 30px;
     line-height: 30px;
     text-indent: 30px;
+    position: relative;
+    -webkit-transition: all 100ms linear;
+}
+
+.menu-item .menu-item-txt {
+    position: relative;
+    z-index: 10;
+}
+
+.menu-item .menu-item-icon {
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    z-index: 20;
+    background: url("../images/ico/arrow-left.png") no-repeat center;
+
+}
+.menu-item > i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 500px;
+    height: 100%;
+    z-index: 0;
+    -webkit-transition: all 100ms linear;
+}
+
+.menu-item:hover {
+    background-color: #45B887;
+    color: #FFF;
+}
+
+.menu-item:hover > i {
+    background-color: rgba(69, 184, 135, 0.6);
 }

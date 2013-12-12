@@ -7,9 +7,10 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="Content-Language" content="vi">
+    <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
 
     <script src="js/effect.js" type="text/javascript"></script>
-    <script src="js/" type="text/javascript"></script>
+    <script src="js/detailCtrl.js" type="text/javascript"></script>
 
     <link href="" rel="shortcut icon">
 
@@ -41,19 +42,19 @@
             <div class="left-menu">
                 <div class="title highlight">Nội thất gia đình</div>
                 <ul class="menu-list">
-                    <li class="menu-item">Bàn ăn</li>
-                    <li class="menu-item">Ghế</li>
-                    <li class="menu-item">Giường</li>
-                    <li class="menu-item">Tủ áo</li>
-                    <li class="menu-item">Salon</li>
-                    <li class="menu-item">Kệ tivi</li>
-                    <li class="menu-item">Tủ ngăn phòng</li>
-                    <li class="menu-item">Tủ rượu</li>
-                    <li class="menu-item">Tủ đầu giường</li>
-                    <li class="menu-item">Tủ đa năng</li>
-                    <li class="menu-item">Kệ giày</li>
-                    <li class="menu-item">Bàn trang điểm</li>
-                    <li class="menu-item">Bàn học</li>
+                    <li class="menu-item"><div class="menu-item-txt">Bàn ăn</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Ghế</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Giường</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Tủ áo</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Salon</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Kệ tivi</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Tủ ngăn phòng</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Tủ rượu</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Tủ đầu giường</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Tủ đa năng</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Kệ giày</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Bàn trang điểm</div><i></i></li>
+                    <li class="menu-item"><div class="menu-item-txt">Bàn học</div><i></i></li>
                 </ul>
                 <div class="title highlight">Nội thất văn phòng</div>
                 <ul class="menu-list">
@@ -67,6 +68,7 @@
                 <ul class="menu-list">
                     <li class="menu-item">Đồ gỗ ngoài trời</li>
                 </ul>
+                <div class=""></div>
             </div>
             <div class="right-panel">
                 <b class="title">Thông số chi tiết</b>
@@ -74,7 +76,7 @@
                 <div class="detail-panel">
                     <div class="gallery-view">
                         <div class="gallery-preview">
-                            <div class="gallery-img"></div>
+                            <div class="gallery-img" id="gallery-img-src"></div>
                         </div>
                         <ul class="gallery-list">
                             <li class="gallery-item active">
@@ -108,7 +110,7 @@
 
                 <div class="grid-view">
                     <div class="grid-group">
-                        <div class="grid-item"><a href="cdetail.html?id=0">
+                        <div class="grid-item"><a href="cdetail.html?id=a6">
                             <div class="grid-item-img-wrap">
                                 <div class="grid-item-img"
                                      style="background-image: url('images/resource/a6.jpg')"></div>
@@ -119,7 +121,7 @@
                             <div class="grid-item-price">500.000</div>
                         </a>
                         </div>
-                        <div class="grid-item"><a href="cdetail.html?id=0">
+                        <div class="grid-item"><a href="cdetail.html?id=a7">
                             <div class="grid-item-img-wrap">
                                 <div class="grid-item-img"
                                      style="background-image: url('images/resource/a7.jpg')"></div>
@@ -130,7 +132,7 @@
                             <div class="grid-item-price">1.000.000</div>
                         </a>
                         </div>
-                        <div class="grid-item"><a href="cdetail.html?id=0">
+                        <div class="grid-item"><a href="cdetail.html?id=a8">
                             <div class="grid-item-img-wrap">
                                 <div class="grid-item-img"
                                      style="background-image: url('images/resource/a8.jpg')"></div>
@@ -141,7 +143,7 @@
                             <div class="grid-item-price">2.000.000</div>
                         </a>
                         </div>
-                        <div class="grid-item"><a href="cdetail.html?id=0">
+                        <div class="grid-item"><a href="cdetail.html?id=a9">
                             <div class="grid-item-img-wrap">
                                 <div class="grid-item-img"
                                      style="background-image: url('images/resource/a9.jpg')"></div>
@@ -231,7 +233,7 @@
             </div>
         </div>
     </div>
-    <div class="popup"></div>
+    <div id="popup" class="popup"></div>
 </div>
 </body>
 </html>
