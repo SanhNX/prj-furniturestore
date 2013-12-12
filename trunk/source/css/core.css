@@ -83,3 +83,16 @@ body {
     vertical-align: top;
     margin-left: 20px;
 }
+
+.detail-cast-btn {
+    height: 60px;
+    line-height: 60px;
+    text-indent: 60px;
+    font-size: 18px;
+    background: url("../images/ico/cash-ico.png") no-repeat 10px top;
+    display: inline-block;
+    padding: 0px 20px;
+    margin-top: 20px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
