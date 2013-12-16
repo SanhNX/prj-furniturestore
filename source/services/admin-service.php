@@ -5,6 +5,7 @@ include '../DTO/object.php';
 include '../BLL/categoryBLL.php';
 include '../BLL/subCategoryBLL.php';
 include '../BLL/productBLL.php';
+include '../BLL/adminBLL.php';
 // Handle for each request should add in two line comment
 
 // ---------------- REQUEST WITH FLAG : loadHorizontalTabs --------------------
@@ -174,7 +175,27 @@ else if($flag == 'getAllProductBySubCateId'){
     }
     // echo $id.$subcateId.$name.$price.$promotion_price.$size.$material.$color.$description.$image_1.$image_2.$image_3;
 }
-
+// ------------------ Change Pass --------------------------
+else if($flag == 'checkOldPass') {
+    $oldPass = $_POST['txtOldPass'];
+    // $id = adminExist($_SESSION['admin_email'], $oldPass);
+    /*if($status == -1){
+        echo false;
+    } else {
+        echo $id;
+    }*/
+    echo $_SESSION['admin_email'];
+}
+else if($flag == 'changepass') {
+    $id = $_POST['id'];
+    $newpass = $_POST['newpass'];
+    $isExist = updatePassAdminById($id, $newpass);
+    if($status == -1){
+        echo false;
+    } else {
+        echo true;
+    }
+}
 // ---------------- END REQUEST WITH FLAG : loadHorizontalTabs ----------------
 
 ?>

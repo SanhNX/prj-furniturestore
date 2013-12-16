@@ -4,11 +4,9 @@ if (isset($_SESSION["admin_email"])) {
 	echo '<li class="dropdown user-dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> ' . $_SESSION['admin_name'] . ' <b class="caret"></b></a>
 			<ul class="dropdown-menu">
-			  <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
-			  <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
-			  <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
+			  <li><a href="change-pass.php"><i class="fa fa-edit"></i> Đổi mật khẩu </a></li>
 			  <li class="divider"></li>
-			  <li><a id="btn-admin-logout" href="#"><i class="fa fa-power-off"></i> Log Out</a></li>
+			  <li><a id="btn-admin-logout" href="#"><i class="fa fa-power-off"></i> Thoát</a></li>
 			</ul>
 		  </li>';
 } else {
