@@ -32,6 +32,7 @@
 	    var $material;
 	    var $color;
 	    var $description;
+	    var $created_date;
 	}
 
 ?>

@@ -24,7 +24,7 @@
 .carousel-item .carousel-item-img {
     height: 60%;
     margin: 10px 5px 10px 5px;
-    background:url("../images/ico/bullet.png") no-repeat center center #eee;
+    background:url("../images/showroom/1.jpg") no-repeat center center #eee;
     border-radius: 4px;
 }
 .carousel-item .carousel-item-label {
@@ -32,7 +32,7 @@
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
 }
 
 .carousel-btn {
