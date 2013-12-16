@@ -10,6 +10,7 @@
     text-indent: 30px;
     position: relative;
     -webkit-transition: all 100ms linear;
+    cursor: pointer;
 }
 
 .menu-item .menu-item-txt {

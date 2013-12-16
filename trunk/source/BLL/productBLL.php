@@ -22,13 +22,72 @@ function getAllProduct() {
         $item->size = $seletedItem['size'];
         $item->material = $seletedItem['material'];
 		$item->color = $seletedItem['color'];
-		$item->description = $seletedItem['description'];
+        $item->description = $seletedItem['description'];
+		$item->created_date = $seletedItem['created_date'];
         $result[$i] = $item;
         $i++;
     }
     return $result;
 }
 
+function getLatestProduct() {
+    $sql = "SELECT * FROM tbl_product ORDER BY created_date DESC LIMIT 10";
+    $queryResult = mysql_query($sql);
+    if (!$queryResult) {
+        echo 'Could not run query: ' . mysql_error();
+        exit;
+    }
+    $i = 0;
+    $result = null;
+    while ($seletedItem = mysql_fetch_array($queryResult)) {
+        $item = new Product();
+        $item->id = $seletedItem['id'];
+        $item->subcateId = $seletedItem['subcateid'];
+        $item->name = $seletedItem['name'];
+        $item->price = $seletedItem['price'];
+        $item->promotion_price = $seletedItem['promotion_price'];
+        $item->image_1 = $seletedItem['image_1'];
+        $item->image_2 = $seletedItem['image_2'];
+        $item->image_3 = $seletedItem['image_3'];
+        $item->size = $seletedItem['size'];
+        $item->material = $seletedItem['material'];
+        $item->color = $seletedItem['color'];
+        $item->description = $seletedItem['description'];
+        $item->created_date = $seletedItem['created_date'];
+        $result[$i] = $item;
+        $i++;
+    }
+    return $result;
+}
+function getPremiumProducts() {
+    $sql = "SELECT * FROM tbl_product ORDER BY price DESC LIMIT 10";
+    $queryResult = mysql_query($sql);
+    if (!$queryResult) {
+        echo 'Could not run query: ' . mysql_error();
+        exit;
+    }
+    $i = 0;
+    $result = null;
+    while ($seletedItem = mysql_fetch_array($queryResult)) {
+        $item = new Product();
+        $item->id = $seletedItem['id'];
+        $item->subcateId = $seletedItem['subcateid'];
+        $item->name = $seletedItem['name'];
+        $item->price = $seletedItem['price'];
+        $item->promotion_price = $seletedItem['promotion_price'];
+        $item->image_1 = $seletedItem['image_1'];
+        $item->image_2 = $seletedItem['image_2'];
+        $item->image_3 = $seletedItem['image_3'];
+        $item->size = $seletedItem['size'];
+        $item->material = $seletedItem['material'];
+        $item->color = $seletedItem['color'];
+        $item->description = $seletedItem['description'];
+        $item->created_date = $seletedItem['created_date'];
+        $result[$i] = $item;
+        $i++;
+    }
+    return $result;
+}
 function getAllProductBySubCateId ($subcateid) {
     // $sql = "SELECT * FROM tbl_product Where cateid = '".$id."' LIMIT '".($pageNumber*10)."', '".($pageNumber*10*2)."'"; // ORDER BY name ASC
     $sql = "SELECT * FROM tbl_product Where subcateid = '".$subcateid."'"; // ORDER BY name ASC
@@ -53,6 +112,7 @@ function getAllProductBySubCateId ($subcateid) {
         $item->material = $seletedItem['material'];
         $item->color = $seletedItem['color'];
         $item->description = $seletedItem['description'];
+        $item->created_date = $seletedItem['created_date'];
         $result[$i] = $item;
         $i++;
     }
@@ -80,13 +140,14 @@ function getProductById ($id) {
     $item->material = $seletedItem['material'];
     $item->color = $seletedItem['color'];
     $item->description = $seletedItem['description'];
+    $item->created_date = $seletedItem['created_date'];
     return $item;
 }
 
 function insertProduct ($subcateId, $name, $price, $promotion_price, $image_1, 
     $image_2, $image_3, $size, $material, $color, $description){
     $sql = "INSERT INTO tbl_product VALUES (default, '$subcateId', '$name', '$price', '$promotion_price', '$image_1', 
-        '$image_2', '$image_3', '$size', '$material', '$color', '$description')";
+        '$image_2', '$image_3', '$size', '$material', '$color', '$description', NOW())";
     $queryResult = mysql_query($sql) or die(mysql_error());
     
     if (!$queryResult) {

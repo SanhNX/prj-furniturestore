@@ -26,6 +26,7 @@
     margin: 5px 5px 0px 0px;
     border-radius: 4px 4px 0px 0px;
     overflow: hidden;
+    box-shadow: 0 0 3px #666;
 }
 
 .grid-item-img {
@@ -54,6 +55,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    box-shadow: 0 0 3px #666;
 }
 
 .grid-item-price {
@@ -69,6 +71,7 @@
     color: #FFF;
     background-color: #CCC;
     font-weight: bold;
+    box-shadow: 0 0 3px #666;
 }
 
 .grid-paging {

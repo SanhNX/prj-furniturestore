@@ -1,7 +1,7 @@
 <?php
 
 $username = 'root';
-$password = 'root';
+$password = '';
 $hostname = 'localhost';
 $db = 'furniture_store';
 
