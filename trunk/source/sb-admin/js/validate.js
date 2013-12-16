@@ -68,3 +68,18 @@ function validateProductForm(name, price, promotion_price, size, material, color
 
     return error;
 };
+
+function validateChangePassForm(oldpass, newpass, confirmpass) {
+    var error = "";
+    if (oldpass === "") {
+        error += '• Mật khẩu cũ phải nhập \n\n';
+    }
+    if (newpass.length > 15 || newpass === "") {
+        error += '• Mật khẩu mới phải nhập và bé hơn hoặc bằng 15 ký tự \n\n';
+    } else {
+        if (confirmpass != newpass) {
+            error += '• Nhập lại mật khẩu sai \n\n';
+        }
+    }
+    return error;
+};

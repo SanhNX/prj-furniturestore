@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
     <!-- Add custom JavaScript here -->
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/ajax-admin.js"></script>
     <script type="text/javascript" src="js/validate.js"></script>
     <script type="text/javascript" src="js/sub-category-script.js"></script>
   </head>

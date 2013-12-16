@@ -13,4 +13,6 @@ function onloadIndex () {
         }
     });
 }
-window.onload = onloadIndex();
+window.onload = function() {
+    onloadIndex();
+}
