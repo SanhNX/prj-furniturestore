@@ -30,7 +30,8 @@ create table tbl_product
     size varchar(100) CHARACTER SET utf8,
     material varchar(100) CHARACTER SET utf8,
     color varchar(100) CHARACTER SET utf8,
-    description varchar(1000) CHARACTER SET utf8
+    description varchar(1000) CHARACTER SET utf8,
+	created_date datetime
 );
 create table tbl_admin
 (
@@ -75,11 +76,11 @@ INSERT INTO tbl_sub_category(cateid, name) VALUES(2, 'Tủ hồ sơ');
 INSERT INTO tbl_sub_category(cateid, name) VALUES(2, 'Bục kệ');
 
 INSERT INTO tbl_sub_category(cateid, name) VALUES(3, 'Đồ gỗ ngoài trời');
-INSERT INTO tbl_product(subcateid, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description) 
-VALUES (1, 'Bàn cà phê vuông 1M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ');
-INSERT INTO tbl_product(subcateid, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description) 
-VALUES (2, 'Bàn cà phê vuông 2M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ');
-INSERT INTO tbl_product(subcateid, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description) 
-VALUES (3, 'Bàn cà phê vuông 3M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ');
+INSERT INTO tbl_product(subcateid, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description, created_date) 
+VALUES (1, 'Bàn cà phê vuông 1M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ', NOW());
+INSERT INTO tbl_product(subcateid, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description, created_date) 
+VALUES (2, 'Bàn cà phê vuông 2M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ', NOW());
+INSERT INTO tbl_product(subcateid, name, price, promotion_price, image_1, image_2, image_3, size, material, color, description, created_date) 
+VALUES (3, 'Bàn cà phê vuông 3M', 3789000, 3500000, './images/icon/no-avatar.png', './images/icon/no-avatar.png', './images/icon/no-avatar.png', 'D1000 x R1000 x C750', 'Gỗ tự nhiên veneer Xoan Đào', 'PU Bóng - Mờ', 'GIÁ TRÊN CHƯA BAO GỒM 4 GHẾ', NOW());
 
 
