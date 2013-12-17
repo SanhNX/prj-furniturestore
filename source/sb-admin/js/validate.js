@@ -74,8 +74,8 @@ function validateChangePassForm(oldpass, newpass, confirmpass) {
     if (oldpass === "") {
         error += '• Mật khẩu cũ phải nhập \n\n';
     }
-    if (newpass.length > 15 || newpass === "") {
-        error += '• Mật khẩu mới phải nhập và bé hơn hoặc bằng 15 ký tự \n\n';
+    if (newpass.length < 8 || newpass.length > 15 || newpass === "") {
+        error += '• Mật khẩu mới phải nhập\n\n • Và nằm trong khoảng 8 - 15 ký tự \n\n';
     } else {
         if (confirmpass != newpass) {
             error += '• Nhập lại mật khẩu sai \n\n';

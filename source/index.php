@@ -44,7 +44,7 @@
 <div class="right-panel">
     <div class="wrapper_grid_title">
         <b class="wrapper_grid_icon"></b>
-        <b class="title">Sản Phẩm Mới</b>
+        <b class="title bar">Sản Phẩm Mới</b>
     </div>
     <div class="grid-view">
         <div id="latestProductPanel" class="grid-group"></div>
@@ -58,7 +58,7 @@
         </div>
     </div>
     <div class="wrapper_grid_title">
-        <b class="title">Sản Phẩm Cao Cấp</b>
+        <b class="title bar">Sản Phẩm Cao Cấp</b>
     </div>
     <div class="grid-view">
         <div id="premiumProductPanel" class="grid-group"></div>
@@ -74,7 +74,7 @@
 </div>
 </div>
 <div class="wrapper_grid_title">
-        <b class="title">Chi Nhánh</b>
+        <b class="title bar">Chi Nhánh</b>
     </div>
 <div class="footer">
     <div class="foot-showroom">
