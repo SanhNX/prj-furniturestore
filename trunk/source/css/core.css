@@ -75,6 +75,7 @@ body {
 }
 
 .right-panel {
+    margin-top: 25px;
     width: 800px;
     display: inline-block;
     vertical-align: top;

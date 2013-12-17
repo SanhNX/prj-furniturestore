@@ -1,25 +1,20 @@
 <?php
 
 function adminExist($email, $oldPass) {
-    $sql = "SELECT * FROM tbl_admin Where email = '".$email."' and password = '".$oldPass."'";
+    $sql = "SELECT * FROM  tbl_admin WHERE email = '" . $email . "' AND password = '" . $oldPass . "'";
     $queryResult = mysql_query($sql);
-    
     if (!$queryResult) {
-        echo 'Error: ' . mysql_error();
-        return -1;
+        echo 'Could not run query: ' . $email . mysql_error();
+        exit;
     }
-    
-    if (mysql_num_rows($queryResult) > 0){
-        $seletedItem = mysql_fetch_array($queryResult);
-        return  $seletedItem['id'];
-    } else {
-        return -1;
-    }
+    // Mysql_num_row is counting table row
+    $seletedItem = mysql_fetch_array($queryResult);
+    return $seletedItem['id'];
 }
 
 
 function updatePassAdminById ($id, $newpass){
-    $sql = " UPDATE tbl_admin SET password = '$newpass' WHERE id = $id";
+    $sql = " UPDATE tbl_admin SET password = '$newpass' WHERE id = '$id'";
     $queryResult = mysql_query($sql) or die(mysql_error());
 
     if (!$queryResult) {

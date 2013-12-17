@@ -178,22 +178,22 @@ else if($flag == 'getAllProductBySubCateId'){
 // ------------------ Change Pass --------------------------
 else if($flag == 'checkOldPass') {
     $oldPass = $_POST['txtOldPass'];
-    // $id = adminExist($_SESSION['admin_email'], $oldPass);
-    /*if($status == -1){
-        echo false;
+    $txtAdminEmail = $_POST['txtAdminEmail'];
+    $id = adminExist($txtAdminEmail, $oldPass);
+    if($id === null){
+        echo json_encode(false);
     } else {
         echo $id;
-    }*/
-    echo $_SESSION['admin_email'];
+    }
 }
 else if($flag == 'changepass') {
     $id = $_POST['id'];
     $newpass = $_POST['newpass'];
-    $isExist = updatePassAdminById($id, $newpass);
+    $status = updatePassAdminById($id, $newpass);
     if($status == -1){
-        echo false;
+        echo json_encode(false);
     } else {
-        echo true;
+        echo json_encode(true);
     }
 }
 // ---------------- END REQUEST WITH FLAG : loadHorizontalTabs ----------------
