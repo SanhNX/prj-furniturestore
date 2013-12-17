@@ -48,10 +48,11 @@ body {
     color: #222222;
 }
 .title.bar{
+    margin-top: 25px;
     height: 40px;
     line-height: 40px;
     text-indent: 50px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     display: block;
     background:url("../images/bg/titlebar.png") no-repeat right bottom #3bb681;
     border-radius: 4px;
@@ -75,7 +76,6 @@ body {
 }
 
 .right-panel {
-    margin-top: 25px;
     width: 800px;
     display: inline-block;
     vertical-align: top;
