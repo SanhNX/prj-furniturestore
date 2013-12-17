@@ -47,6 +47,16 @@ body {
     font-size: 16px;
     color: #222222;
 }
+.title.bar{
+    height: 40px;
+    line-height: 40px;
+    text-indent: 50px;
+    margin-bottom: 10px;
+    display: block;
+    background:url("../images/bg/titlebar.png") no-repeat right bottom #3bb681;
+    border-radius: 4px;
+    color: #FFF;
+}
 .light-title{
     font-family: "Segoe UI light";
     font-size: 30px;
