@@ -24,7 +24,8 @@ function onloadIndex () {
             $(".left-menu")[0].innerHTML = menuListHTML;
             $.getScript('js/effect.js', function() {
                 $('.menu-item').click(function (e) {
-                    alert($(this).attr("id"));                
+                    // alert($(this).attr("id"));  
+                    window.location.href = 'product.php?cateId=' + $(this).attr("id");              
                 });
             });
         }
