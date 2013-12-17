@@ -42,9 +42,9 @@
     
 </div>
 <div class="right-panel">
-    <b class="title bar">Sản Phẩm Mới</b>
+    <b id="title_category" class="title bar"></b>
     <div class="grid-view">
-        <div id="latestProductPanel" class="grid-group"></div>
+        <div id="productContentPanel" class="grid-group"></div>
         <div class="grid-paging">
             <div class="grid-num grid-prev"></div>
             <div class="grid-num">1</div>
