@@ -26,16 +26,7 @@
 <body>
 <div class="main">
 <div class="page">
-<div class="header">
-    <div class="nav-logo"></div>
-    <ul class="nav-bar">
-        <li class="nav-item"><a href="cindex.html">Trang chủ</a></li>
-        <li class="nav-item"><a href="">Giới thiệu</a></li>
-        <li class="nav-item"><a href="">Tin Tức</a></li>
-        <li class="nav-item"><a href="">Khuyến mãi</a></li>
-        <li class="nav-item"><a href="">Liên hệ</a></li>
-    </ul>
-</div>
+<?php include 'common/header.php' ?>
 <div class="container">
 <div class="banner"></div>
 <div class="left-menu">

@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Language" content="vi">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="utils/js_utils.js" type="text/javascript"></script>
-    <script src="js/index-script.js" type="text/javascript"></script>
+    <script src="js/product-script.js" type="text/javascript"></script>
     <script src="js/effect.js" type="text/javascript" defer="defer"></script>
 
     <link href="" rel="shortcut icon">
@@ -26,16 +26,7 @@
 <body>
 <div class="main">
 <div class="page">
-<div class="header">
-    <div class="nav-logo"></div>
-    <ul class="nav-bar">
-        <li class="nav-item"><a href="cindex.html">Trang chủ</a></li>
-        <li class="nav-item"><a href="">Giới thiệu</a></li>
-        <li class="nav-item"><a href="">Tin Tức</a></li>
-        <li class="nav-item"><a href="">Khuyến mãi</a></li>
-        <li class="nav-item"><a href="">Liên hệ</a></li>
-    </ul>
-</div>
+<?php include 'common/header.php' ?>
 <div class="container">
 <div class="banner"></div>
 <div class="left-menu">
@@ -54,20 +45,7 @@
             <div class="grid-num grid-next"></div>
         </div>
     </div>
-    <div class="wrapper_grid_title">
-        <b class="title bar">Sản Phẩm Cao Cấp</b>
-    </div>
-    <div class="grid-view">
-        <div id="premiumProductPanel" class="grid-group"></div>
-        <div class="grid-paging">
-            <div class="grid-num grid-prev"></div>
-            <div class="grid-num">1</div>
-            <div class="grid-num active">2</div>
-            <div class="grid-num">3</div>
-            <div class="grid-num">4</div>
-            <div class="grid-num grid-next"></div>
-        </div>
-    </div>
+    
 </div>
 </div>
 <div class="wrapper_grid_title">

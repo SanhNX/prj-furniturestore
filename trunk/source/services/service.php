@@ -28,6 +28,10 @@ if($flag == 'loadLeftMenu'){
 } else if($flag == 'getPremiumProduct') {
 	$premiumProducts = getPremiumProducts();
 	echo json_encode($premiumProducts);
+} else if($flag == 'getProductsBySubCateId'){
+    $products = getAllProductBySubCateId($_POST['subCateId']);
+    // return value which function call ajax receive response
+    echo json_encode($products);
 }
 // ---------------- END REQUEST WITH FLAG : loadHorizontalTabs ----------------
 
