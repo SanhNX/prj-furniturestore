@@ -29,9 +29,15 @@ if($flag == 'loadLeftMenu'){
 	$premiumProducts = getPremiumProducts();
 	echo json_encode($premiumProducts);
 } else if($flag == 'getProductsBySubCateId'){
+    $categorie = getSubCategoryById($_POST['subCateId']);
     $products = getAllProductBySubCateId($_POST['subCateId']);
     // return value which function call ajax receive response
-    echo json_encode($products);
+    $json = array('products' => $products, 'categorie' => $categorie);
+    echo json_encode($json);
+} else if($flag == 'getProductById') {
+    $product = getProductById($_POST['id']);
+    // return value which function call ajax receive response
+    echo json_encode($product);
 }
 // ---------------- END REQUEST WITH FLAG : loadHorizontalTabs ----------------
 

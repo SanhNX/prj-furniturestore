@@ -24,8 +24,20 @@
 .carousel-item .carousel-item-img {
     height: 60%;
     margin: 10px 5px 10px 5px;
-    background:url("../images/showroom/1.jpg") no-repeat center center #eee;
+    /*background:url("../images/showroom/1.jpg") no-repeat center center #eee;*/
     border-radius: 4px;
+}
+.showroom-img-1 {
+    background:url("../images/showroom/1.jpg") no-repeat center center #eee;
+}
+.showroom-img-2 {
+    background:url("../images/showroom/2.jpg") no-repeat center center #eee;
+}
+.showroom-img-3 {
+    background:url("../images/showroom/3.jpg") no-repeat center center #eee;
+}
+.showroom-img-4 {
+    background:url("../images/showroom/4.jpg") no-repeat center center #eee;
 }
 .carousel-item .carousel-item-label {
     padding: 0px 10px 0px 10px;
@@ -33,6 +45,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
+    color: #578135;
 }
 
 .carousel-btn {
