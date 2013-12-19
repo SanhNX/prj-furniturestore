@@ -12,6 +12,14 @@ function addCommas(str) {
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
 }
+function showLoading() {
+	$("body").css("overflow", "hidden");
+    $("#popup").removeClass("undisplayed");
+}
+function hideLoading() {
+	$("body").css("overflow", "initial");
+    $("#popup").addClass("undisplayed");
+}
 function createTable(pageIndex, data){
     if(!data){
         return;

@@ -17,13 +17,15 @@ function getProductsBySubCateId (subCateId) {
             data = JSON.parse(dto)["products"];
             createTable(1, data);
             createPaging(data);
-            $("#title_category").text(categorie.name)
+            $("#title_category").text(categorie.name);
+            hideLoading();
         }
     });
 }
 
 
 window.onload = function() {
+    showLoading();
     onloadIndex();
     var subCateId = getURLParameter("subCateId");
     if(subCateId && !isNaN(subCateId)){
@@ -32,4 +34,5 @@ window.onload = function() {
         alert("• Xảy ra lỗi. vui lòng chọn loại sản phẩm khác !");
         window.location.href = 'index.php';
     }
+
 }

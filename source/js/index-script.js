@@ -53,10 +53,12 @@ function getPremiumProducts () {
 
             };
             $("#premiumProductPanel")[0].innerHTML = premiumProductHTML;
+            hideLoading();
         }
     });
 }
 window.onload = function() {
+    showLoading();
     onloadIndex();
     getLatestProduct();
     getPremiumProducts();
