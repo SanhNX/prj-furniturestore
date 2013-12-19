@@ -22,7 +22,6 @@ $(function () {
         $(icon).animate({left: 170, opacity: 0}, 100, function () {
         });
     });
-    initializeMap();
 })
 function initializeMap() {
     var mapOptions = {

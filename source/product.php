@@ -5,6 +5,11 @@
     <link rel="icon" type="image/png" href="images/ico/bullet-color-ico.png">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Cung Cấp Nội thất : Bàn giám đốc, bàn họp, bàn làm việc, quầy tiếp tân, nội thất, nội thất văn phòng, trang trí nội thất, 
+            nội thất showroom, nội thất bar, vách ngăn, vách ngăn văn phòng, vách ngăn di động, vách ngăn toilet, tủ hồ sơ.
+            Nội thất TRẦN GIA VIỆT cung cấp trang thiết bị cho văn phòng, khách sạn, nhà hàng, showroom, shop, trường học, nhà ở… được khách hàng đánh giá cao về tính chuyên nghiệp, chất lượng, thẩm mỹ… 
+            Phương châm của chúng tôi là: “Dịch vụ tốt, chất lượng cao, giá cả phù hợp">
+    <meta name="keywords" content="trần gia việt,furniture,nội thất,đồ gỗ,văn phòng,bàn ghế,cửa hàng,giường,tủ,vách ngăn,bàn ăn,tủ áo,salon,kệ tivi,kệ,bàn trang điểm,bàn học,bàn làm việc,bàn lãnh đạo,bàn họp,tủ hồ sơ,bục kệ,đồ gỗ">
     <meta http-equiv="Content-Language" content="vi">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="utils/js_utils.js" type="text/javascript"></script>
