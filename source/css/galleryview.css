@@ -15,6 +15,7 @@
 .gallery-img {
     background: url("../images/ico/bullet.png") center #3bb681;
     height: 100%;
+    box-shadow: 0px 0px 5px 5px #888;
 }
 
 .gallery-list {
@@ -22,16 +23,20 @@
     padding: 0;
     height: 80px;
     margin: 10px 0px 0px 0px;
+    text-align: center;
 }
 
 .gallery-list .gallery-item {
-    height: 100%;
     display: inline-block;
+    height: 100%;
     width: 25%;
+    margin-right: 20px;
+    box-shadow: 5px 5px 5px #888;
+    cursor: pointer;
 }
 
 .gallery-list .gallery-item .gallery-item-img {
-    margin: 0px 3px;
+    /*margin: 0px 3px;*/
     background: url("../images/ico/bullet-s.png") repeat center top #eee;
     border-radius: 2px;
     height: 100%;

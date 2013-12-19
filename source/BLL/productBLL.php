@@ -31,7 +31,7 @@ function getAllProduct() {
 }
 
 function getLatestProduct() {
-    $sql = "SELECT * FROM tbl_product ORDER BY created_date DESC LIMIT 10";
+    $sql = "SELECT * FROM tbl_product ORDER BY created_date DESC LIMIT 8";
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
         echo 'Could not run query: ' . mysql_error();
@@ -60,7 +60,7 @@ function getLatestProduct() {
     return $result;
 }
 function getPremiumProducts() {
-    $sql = "SELECT * FROM tbl_product ORDER BY price DESC LIMIT 10";
+    $sql = "SELECT * FROM tbl_product ORDER BY price DESC LIMIT 8";
     $queryResult = mysql_query($sql);
     if (!$queryResult) {
         echo 'Could not run query: ' . mysql_error();

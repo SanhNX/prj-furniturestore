@@ -11,6 +11,7 @@
     position: relative;
     -webkit-transition: all 100ms linear;
     cursor: pointer;
+    background: url("../images/ico/bullet-s.png") no-repeat 5px center;
 }
 
 .menu-item .menu-item-txt {
@@ -44,4 +45,22 @@
 
 .menu-item:hover > i {
     background-color: rgba(69, 184, 135, 0.6);
+}
+
+.support-title {
+    padding: 5px 10px;
+    color: #fe9102;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+}
+.support div.content {
+    margin-left: 15px;
+    color: #009531;
+    font-weight: normal;
+    font-size: 13px;
+    text-align: left;
+}
+.support div.content span {
+color: red;
 }

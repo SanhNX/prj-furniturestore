@@ -13,6 +13,7 @@
     display: inline-block;
     cursor: pointer;
     position: relative;
+    margin-bottom: 25px;
 }
 .grid-item > a {
     background: none;
