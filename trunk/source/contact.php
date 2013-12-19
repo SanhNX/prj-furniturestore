@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/galleryview.css"/>
     <link rel="stylesheet" type="text/css" href="css/carouselview.css"/>
     <link rel="icon" type="image/png" href="images/ico/bullet-color-ico.png">
 
@@ -13,10 +12,10 @@
     <meta name="keywords" content="trần gia việt,furniture,nội thất,đồ gỗ,văn phòng,bàn ghế,cửa hàng,giường,tủ,vách ngăn,bàn ăn,tủ áo,salon,kệ tivi,kệ,bàn trang điểm,bàn học,bàn làm việc,bàn lãnh đạo,bàn họp,tủ hồ sơ,bục kệ,đồ gỗ">
     <meta http-equiv="Content-Language" content="vi">
     <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script src="utils/js_utils.js" type="text/javascript"></script>
-    <script src="js/detail-script.js" type="text/javascript"></script>
+    <script src="js/contact-script.js" type="text/javascript"></script>
     <script src="js/effect.js" type="text/javascript"></script>
-    <script src="js/detailCtrl.js" type="text/javascript"></script>
 
     <link href="" rel="shortcut icon">
 
@@ -40,50 +39,52 @@
             <div class="banner"></div>
             <?php include 'common/left-menu.php' ?>
             <div class="right-panel">
-                <b class="title bar">Thông số chi tiết</b>
+                <b class="title bar">Liên Hệ Các Chi Nhánh</b>
 
-                <div class="detail-panel">
-                    <div class="gallery-view">
-                        <div class="gallery-preview">
-                            <div class="gallery-img" id="gallery-img-src"></div>
+                <div class="contact-row room0">
+                    <div id="map-canvas1" class="map-panel"></div>
+                    <div class="contact-panel">
+                        <div class="show-room-name">Chi Nhánh 1</div>
+                        <div class="show-room-address">
+                            122 Nguyễn Xí , Phường 26, Q.Bình Thạnh , TP.HCM 
                         </div>
-                        <ul class="gallery-list">
-                            <li class="gallery-item active" onclick="changeImage(this)" title="Click vào để xem hình lớn">
-                                <div class="gallery-item-img"></div>
-                            </li>
-                            <li class="gallery-item" onclick="changeImage(this)" title="Click vào để xem hình lớn">
-                                <div class="gallery-item-img"></div>
-                            </li>
-                            <li class="gallery-item" onclick="changeImage(this)" title="Click vào để xem hình lớn">
-                                <div class="gallery-item-img"></div>
-                            </li>
-                            
-                        </ul>
-                        <!-- <div class="gallery-btn prev"><i></i></div>
-                        <div class="gallery-btn next"><i></i></div> -->
-                    </div>
-                    <div class="detail-view">
-                        <div id="prodName" class="light-title"></div>
-                        <div id="prodSize" class="text"></div>
-                        <div id="prodMaterial" class="text"></div>
-                        <div id="prodColor" class="text"></div>
-                        <div id="prodDes" class="text"></div>
-                        <div id="prodPrice" class="detail-cast-btn" style="float: right;"></div>
-                        <div id="prodPromotionPrice" class="light-title undisplayed" style="float: right; font-size: 25px;"></div>
+                        <div class="show-room-phone">0166-557-788<br/>090-223-5679</div>
                     </div>
                 </div>
-                <br/>
-                <b class="title bar">Sản phẩm liên quan</b>
-                <div class="grid-view">
-                    <div id="productContentPanel" class="grid-group"></div>
-                    <div id="messagePanel" class="message-panel undisplayed">Không có sản phẩm trong loại này, vui lòng chọn loại khác</div>
-                    <div id="grid-paging" class="grid-paging"></div>
+                <div class="contact-row room1">
+                    <div id="map-canvas2" class="map-panel"></div>
+                    <div class="contact-panel">
+                        <div class="show-room-name">Chi Nhánh 2</div>
+                        <div class="show-room-address">
+                            122 Nguyễn Xí , Phường 26, Q.Bình Thạnh , TP.HCM
+                        </div>
+                        <div class="show-room-phone">0166-557-788<br/>090-223-5679</div>
+                    </div>
                 </div>
+                <div class="contact-row room2">
+                    <div id="map-canvas3" class="map-panel"></div>
+                    <div class="contact-panel">
+                        <div class="show-room-name">Chi Nhánh 3</div>
+                        <div class="show-room-address">
+                            908 Quang Trung, Phường 8, Q.Gò Vấp, TP.HCM 
+                        </div>
+                        <div class="show-room-phone">0166-557-788<br/>090-223-5679</div>
+                    </div>
+                </div>
+                <div class="contact-row room3">
+                    <div id="map-canvas4" class="map-panel"></div>
+                    <div class="contact-panel">
+                        <div class="show-room-name">Chi Nhánh 4</div>
+                        <div class="show-room-address">
+                            908 Quang Trung, Phường 8, Q.Gò Vấp, TP.HCM 
+                        </div>
+                        <div class="show-room-phone">0166-557-788<br/>090-223-5679</div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <b class="title bar">Chi Nhánh</b>
         <div class="footer">
-            <?php include 'common/showroom.php' ?>
             <?php include 'common/footer-info.php' ?>
             <div class="foot-nav">
                 <ul class="foot-social">
