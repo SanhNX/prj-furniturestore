@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    <div id="popup" class="popup"></div>
+    <?php include 'common/popup-loading.php' ?>
 </div>
 </body>
 </html>
