@@ -430,9 +430,9 @@ function createTable(pageIndex, data){
                     '<td class="align-vertical">'+addCommas(data[i].promotion_price)+'</td>'+
                     '<td class="align-vertical">'+data[i].size+'</td>'+
                     '<td class="align-center">'+
-                    '<img height="60" width="60" class="grid-img img-hover" style="margin-right: 5px;" src='+data[i].image_1+'>'+
-                    '<img height="60" width="60" class="grid-img img-hover" style="margin-right: 5px;" src='+data[i].image_2+'>'+
-                    '<img height="60" width="60" class="grid-img img-hover" style="margin-right: 5px;" src='+data[i].image_3+'>'+
+                    '<img height="60" width="60" class="grid-img img-hover" style="margin-right: 5px;" src="'+data[i].image_1+'">'+
+                    '<img height="60" width="60" class="grid-img img-hover" style="margin-right: 5px;" src="'+data[i].image_2+'">'+
+                    '<img height="60" width="60" class="grid-img img-hover" style="margin-right: 5px;" src="'+data[i].image_3+'">'+
                     '</td>'+
                     '<td class="align-vertical">'+
                       '<div class="btn-group-action">'+

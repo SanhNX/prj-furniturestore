@@ -2,7 +2,8 @@
 }
 
 .nav-bar {
-    background-color: #3bb681;
+    /*background-color: #3bb681;*/
+    /*background-color: rgba(235, 200, 135, 1);*/
     color: #FFFFFF;
     display: inline-block;
     list-style: none;

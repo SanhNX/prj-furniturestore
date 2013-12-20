@@ -13,11 +13,11 @@ function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
 }
 function showLoading() {
-	$("body").css("overflow", "hidden");
+	// $("body").css("overflow", "hidden");
     $("#popup").removeClass("undisplayed");
 }
 function hideLoading() {
-	$("body").css("overflow", "initial");
+	// $("body").css("overflow", "initial");
     $("#popup").addClass("undisplayed");
 }
 function createTable(pageIndex, data){
@@ -28,6 +28,7 @@ function createTable(pageIndex, data){
     index = (pageIndex * numPerPage) - numPerPage;
     for (var i = index; i <= (pageIndex*numPerPage) - 1; i++) {
         if(data[i]){
+            data[i].image_1 = data[i].image_1.replace(/\s/g, "%20");
             // var img = data[i].image_1 ? data[i].image_1 : (data[i].image_2 ? data[i].image_2 : data[i].image_3);
             var itemHTML = '<div class="grid-item">'+
                 '<a href="detail.php?id='+ data[i].id +'">'+
