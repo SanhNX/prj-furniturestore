@@ -39,7 +39,8 @@
 }
 
 .menu-item:hover {
-    background-color: #45B887;
+    /*background-color: #45B887;*/
+    background-color: rgba(235, 200, 135, 1);
     color: #FFF;
 }
 
@@ -49,7 +50,7 @@
 
 .support-title {
     padding: 5px 10px;
-    color: #fe9102;
+    color: rgba(168, 123, 39, 1);
     font-weight: bold;
     font-size: 13px;
     text-align: left;

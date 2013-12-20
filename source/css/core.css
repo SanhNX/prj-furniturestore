@@ -12,7 +12,7 @@ body {
     display: none !important;
 }
 .main {
-    background: url("../images/bg/head.png") no-repeat center top;
+    background: url("../images/bg/head_2.png") no-repeat center top;
 }
 
 .button {
@@ -57,15 +57,16 @@ body {
     text-indent: 30px;
     margin-bottom: 25px;
     display: block;
-    background:url("../images/bg/titlebar.png") no-repeat right bottom #3bb681;
+    /*background:url("../images/bg/titlebar.png") no-repeat right bottom #3bb681;*/
+    background:url("../images/bg/titlebar.png") no-repeat right bottom rgba(235, 200, 135, 1);
     border-radius: 4px;
-    color: #FFF;
+    color: rgba(58, 54, 47, 1);
     box-shadow: 5px 5px 5px #CCC9C9;
 }
 .light-title{
     font-family: "Segoe UI light";
     font-size: 30px;
-    color: #EC921C;
+    color: rgba(168, 123, 39, 1);
     font-weight: bold;
 }
 .text{
@@ -73,7 +74,8 @@ body {
     font-size: 13px;
 }
 .highlight{
-    color: #3bb681;
+    /*color: #3bb681;*/
+    color: rgba(168, 123, 39, 1);
 }
 .left-menu {
     width: 190px;
@@ -192,7 +194,7 @@ body {
     width:31px;
     height:31px;
     position:fixed;
-    background-color: #3bb681;
+    background-color: rgba(155, 130, 80, 1);
     bottom:15px;
     right:15px;
     display:none;

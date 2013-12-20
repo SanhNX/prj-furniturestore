@@ -40,9 +40,9 @@ function getProductById (id) {
                 $("#prodPromotionPrice").removeClass("undisplayed");    
                 $("#prodPromotionPrice").text("Khuyến Mãi : " + addCommas(product.promotion_price) + " VND");
             }
-            var url1 = 'url('+ product.image_1 +')';
-            var url2 = 'url('+ product.image_2 +')';
-            var url3 = 'url('+ product.image_3 +')';
+            var url1 = 'url('+ product.image_1.replace(/\s/g, "%20") +')';
+            var url2 = 'url('+ product.image_2.replace(/\s/g, "%20") +')';
+            var url3 = 'url('+ product.image_3.replace(/\s/g, "%20") +')';
             $("#gallery-img-src").css("background-image", url1.replace("../",""));
             $("#gallery-img-src").css("background-size", "100% 100%");
 

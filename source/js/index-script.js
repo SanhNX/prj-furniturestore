@@ -16,7 +16,7 @@ function getLatestProduct () {
                 var itemHTML = '<div class="grid-item">'+
                                     '<a href="detail.php?id='+ items[i].id +'">'+
                                         '<div class="grid-item-img-wrap">'+
-                                            '<div class="grid-item-img" style="background-image: url('+ (items[i].image_1.replace("../","")) +')"></div>'+
+                                            '<div class="grid-item-img" style="background-image: url('+ (items[i].image_1.replace("../","")).replace(/\s/g, "%20") +')"></div>'+
                                         '</div>'+
                                         '<div class="grid-item-label">'+ items[i].name +'</div>'+
                                         '<div class="grid-item-price">'+ addCommas(items[i].price) +' VND</div>'+
@@ -43,7 +43,7 @@ function getPremiumProducts () {
                 var itemHTML = '<div class="grid-item">'+
                                     '<a href="detail.php?id='+ items[i].id +'">'+
                                         '<div class="grid-item-img-wrap">'+
-                                            '<div class="grid-item-img" style="background-image: url('+ (items[i].image_1.replace("../","")) +')"></div>'+
+                                            '<div class="grid-item-img" style="background-image: url('+ (items[i].image_1.replace("../","")).replace(/\s/g, "%20") +')"></div>'+
                                         '</div>'+
                                         '<div class="grid-item-label">'+ items[i].name +'</div>'+
                                         '<div class="grid-item-price">'+ addCommas(items[i].price) +' VND</div>'+
