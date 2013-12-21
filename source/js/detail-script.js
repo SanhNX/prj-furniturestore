@@ -44,16 +44,16 @@ function getProductById (id) {
             var url2 = 'url('+ product.image_2.replace(/\s/g, "%20") +')';
             var url3 = 'url('+ product.image_3.replace(/\s/g, "%20") +')';
             $("#gallery-img-src").css("background-image", url1.replace("../",""));
-            $("#gallery-img-src").css("background-size", "100% 100%");
+            // $("#gallery-img-src").css("background-size", "100% 100%");
 
             $(".gallery-item-img")[0].style.backgroundImage = url1.replace("../","");
-            $(".gallery-item-img")[0].style.backgroundSize = "100% 100%";
+            // $(".gallery-item-img")[0].style.backgroundSize = "100% 100%";
 
             $(".gallery-item-img")[1].style.backgroundImage = url2.replace("../","");
-            $(".gallery-item-img")[1].style.backgroundSize = "100% 100%";
+            // $(".gallery-item-img")[1].style.backgroundSize = "100% 100%";
 
             $(".gallery-item-img")[2].style.backgroundImage = url3.replace("../","");
-            $(".gallery-item-img")[2].style.backgroundSize = "100% 100%";
+            // $(".gallery-item-img")[2].style.backgroundSize = "100% 100%";
             getProductsBySubCateId(subCateId);
         }
     });
