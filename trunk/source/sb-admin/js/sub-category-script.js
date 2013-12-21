@@ -1,5 +1,6 @@
 var data = null;
-
+var totalPage = null;
+var currentPageIndex = null;
 $(document).ready(function() {
     $('#btn-del-subcate').on('click', function(e) {
         clearFormCate();
@@ -133,10 +134,27 @@ function onloadDropDownCategory () {
         }
     });
 };
+function loadPreviousPage() {
+    if(currentPageIndex && totalPage){
+        if(currentPageIndex > 1){
+            loadPaging(currentPageIndex - 1);
+        }
+    } else {
+        alert("• Xảy ra lỗi. Vui lòng thử lại !")
+    }
+}
+function loadNextPage() {
+    if(currentPageIndex && totalPage){
+        if(currentPageIndex < totalPage){
+            loadPaging(currentPageIndex + 1);
+        }
+    } else {
+        alert("• Xảy ra lỗi. Vui lòng thử lại !")
+    }
+}
 
 function createPaging(list){
     if(list){
-        var totalPage = 0;
         var tempPage = list.length/10;
         totalPage = tempPage > Math.round(tempPage) ? Math.floor(tempPage) + 1 : Math.round(tempPage);
         $("#paging-sub-category")[0].innerHTML = "";
@@ -144,7 +162,7 @@ function createPaging(list){
         if(totalPage === 1){
             return;
         }
-        $("#paging-sub-category")[0].innerHTML += '<li><a>«</a></li>'; // class="disabled"
+        $("#paging-sub-category")[0].innerHTML += '<li onclick="loadPreviousPage()" style="cursor: pointer;"><a>«</a></li>'; // class="disabled"
         for (var i = 1; i <= totalPage; i++) {
             var item = "<li id='paging_"+ i +"' class='paging'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
             if(i == 1){
@@ -152,7 +170,7 @@ function createPaging(list){
             }
             $("#paging-sub-category")[0].innerHTML += item; 
         };
-        $("#paging-sub-category")[0].innerHTML += '<li><a>»</a></li>';
+        $("#paging-sub-category")[0].innerHTML += '<li onclick="loadNextPage()" style="cursor: pointer;"><a>»</a></li>';
     } else {
         $("#panel-no-content-sub-category").removeClass("undisplayed");
     } 
@@ -173,6 +191,7 @@ function createTable(pageIndex, data){
     if(!data){
         return;
     }
+    currentPageIndex = pageIndex;
     var cateListHTML = "";
     index = (pageIndex * 10) - 10;
     for (var i = index; i <= (pageIndex*10) - 1; i++) {

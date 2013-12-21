@@ -1,5 +1,6 @@
 var data = null;
-
+var totalPage = null;
+var currentPageIndex = null;
 $(document).ready(function() {
     $('#btn-cancel-product').on('click', function(e) {
         cancelProduct();
@@ -378,10 +379,27 @@ function onloadDropDownSubCategory () {
         }
     });
 };
+function loadPreviousPage() {
+    if(currentPageIndex && totalPage){
+        if(currentPageIndex > 1){
+            loadPaging(currentPageIndex - 1);
+        }
+    } else {
+        alert("• Xảy ra lỗi. Vui lòng thử lại !")
+    }
+}
+function loadNextPage() {
+    if(currentPageIndex && totalPage){
+        if(currentPageIndex < totalPage){
+            loadPaging(currentPageIndex + 1);
+        }
+    } else {
+        alert("• Xảy ra lỗi. Vui lòng thử lại !")
+    }
+}
 
 function createPaging(list){
     if(list){
-        var totalPage = 0;
         var tempPage = list.length/10;
         totalPage = tempPage > Math.round(tempPage) ? Math.floor(tempPage) + 1 : Math.round(tempPage);
         $("#paging-product")[0].innerHTML = "";
@@ -389,7 +407,7 @@ function createPaging(list){
         if(totalPage === 1){
             return;
         }
-        $("#paging-product")[0].innerHTML += '<li><a>«</a></li>'; // class="disabled"
+        $("#paging-product")[0].innerHTML += '<li onclick="loadPreviousPage()" style="cursor: pointer;"><a>«</a></li>'; // class="disabled"
         for (var i = 1; i <= totalPage; i++) {
             var item = "<li id='paging_"+ i +"' class='paging'><a href='javascript:loadPaging(" + '"' + i + '"' + ")'>"+ i +"</a></li>";
             if(i == 1){
@@ -397,7 +415,7 @@ function createPaging(list){
             }
             $("#paging-product")[0].innerHTML += item; 
         };
-        $("#paging-product")[0].innerHTML += '<li><a>»</a></li>';
+        $("#paging-product")[0].innerHTML += '<li onclick="loadNextPage()" style="cursor: pointer;"><a>»</a></li>';
     } else {
         $("#panel-no-content-product").removeClass("undisplayed");
     }
@@ -418,6 +436,7 @@ function createTable(pageIndex, data){
     if(!data){
         return;
     }
+    currentPageIndex = pageIndex;
     var cateListHTML = "";
     index = (pageIndex * 10) - 10;
     for (var i = index; i <= (pageIndex*10) - 1; i++) {
