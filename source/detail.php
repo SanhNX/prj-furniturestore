@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/galleryview.css"/>
     <link rel="stylesheet" type="text/css" href="css/carouselview.css"/>
-    <link rel="icon" type="image/png" href="images/ico/bullet-color-ico.png">
+    <link rel="icon" type="image/png" href="images/ico/bullet-color-ico-1.png">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="description" content="Cung Cấp Nội thất : Bàn giám đốc, bàn họp, bàn làm việc, quầy tiếp tân, nội thất, nội thất văn phòng, trang trí nội thất, 
