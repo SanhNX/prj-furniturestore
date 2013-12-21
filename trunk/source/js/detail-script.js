@@ -37,8 +37,11 @@ function getProductById (id) {
             $("#prodDes")[0].innerHTML = ("• <b>Mô Tả</b> : " + product.description);
             $("#prodPrice")[0].innerHTML = (addCommas(product.price) + " VND");
             if(product.promotion_price != "0"){
+                $("#prodPrice").addClass("line-through");
                 $("#prodPromotionPrice").removeClass("undisplayed");    
                 $("#prodPromotionPrice").text("Khuyến Mãi : " + addCommas(product.promotion_price) + " VND");
+            } else {
+                $("#prodPrice").removeClass("line-through");
             }
             var url1 = 'url('+ product.image_1.replace(/\s/g, "%20") +')';
             var url2 = 'url('+ product.image_2.replace(/\s/g, "%20") +')';
