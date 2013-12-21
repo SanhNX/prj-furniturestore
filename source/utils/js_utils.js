@@ -1,3 +1,6 @@
+var totalPage = null;
+var currentPageIndex = null;
+
 function addCommas(str) {
     var amount = new String(str);
     amount = amount.split("").reverse();
@@ -24,6 +27,7 @@ function createTable(pageIndex, data){
     if(!data){
         return;
     }
+    currentPageIndex = pageIndex;
     var productListHTML = "";
     index = (pageIndex * numPerPage) - numPerPage;
     for (var i = index; i <= (pageIndex*numPerPage) - 1; i++) {
@@ -45,6 +49,24 @@ function createTable(pageIndex, data){
     
     $("#productContentPanel")[0].innerHTML = productListHTML;
 };
+function loadPreviousPage() {
+    if(currentPageIndex && totalPage){
+        if(currentPageIndex > 1){
+            loadPaging(currentPageIndex - 1);
+        }
+    } else {
+        alert("• Xảy ra lỗi. Vui lòng thử lại !")
+    }
+}
+function loadNextPage() {
+    if(currentPageIndex && totalPage){
+        if(currentPageIndex < totalPage){
+            loadPaging(currentPageIndex + 1);
+        }
+    } else {
+        alert("• Xảy ra lỗi. Vui lòng thử lại !")
+    }
+}
 function loadPaging(pageIndex){
     createTable(parseInt(pageIndex, 10), data);
     for(var i = 1; i <= $(".grid-num").length; i++){
@@ -55,12 +77,11 @@ function loadPaging(pageIndex){
     }
     if(!getURLParameter("id")){
 	    var body = $("body");
-	    body.animate({scrollTop: 0}, 2000);
+	    body.animate({scrollTop: 400}, 2000);
     }
 };
 function createPaging(list){
     if(list){
-        var totalPage = 0;
         var tempPage = list.length/numPerPage;
         totalPage = tempPage > Math.round(tempPage) ? Math.floor(tempPage) + 1 : Math.round(tempPage);
         $("#grid-paging")[0].innerHTML = "";
@@ -68,7 +89,7 @@ function createPaging(list){
         if(totalPage === 1){
             return;
         }
-        $("#grid-paging")[0].innerHTML += '<div class="grid-num grid-prev"></div>'; // class="disabled"
+        $("#grid-paging")[0].innerHTML += '<div class="grid-num grid-prev" onclick="loadPreviousPage()"></div>'; // class="disabled"
         for (var i = 1; i <= totalPage; i++) {
             var item = "<div id='paging_"+ i +"' class='grid-num' onclick='loadPaging(" + '"' + i + '"' + ")'>"+ i +"</div>";
             if(i == 1){
@@ -76,7 +97,7 @@ function createPaging(list){
             }
             $("#grid-paging")[0].innerHTML += item; 
         };
-        $("#grid-paging")[0].innerHTML += '<div class="grid-num grid-next"></div>';
+        $("#grid-paging")[0].innerHTML += '<div class="grid-num grid-next" onclick="loadNextPage()"></div>';
     } else {
         $("#messagePanel").removeClass("undisplayed");
     }
