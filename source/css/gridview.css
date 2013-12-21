@@ -51,7 +51,7 @@
 .grid-item-label {
     margin: 0px 5px 0px 0px;
     padding: 5px;
-    height: 30px;
+    height: 28px;
     line-height: 15px;
     overflow: hidden;
     background-color: #EEE;
@@ -61,6 +61,9 @@
     box-shadow: 0 0 3px #666;
     color: rgba(58, 54, 47, 1);
     background: url("../images/bg/titlebar.png") no-repeat center center;
+    -webkit-line-clamp: 2;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
 }
 
 .grid-item-price {
