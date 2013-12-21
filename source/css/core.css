@@ -58,7 +58,9 @@ body {
     margin-bottom: 25px;
     display: block;
     /*background:url("../images/bg/titlebar.png") no-repeat right bottom #3bb681;*/
-    background:url("../images/bg/titlebar.png") no-repeat right bottom rgba(235, 200, 135, 1);
+    /*background:url("../images/bg/titlebar.png") no-repeat right bottom rgba(235, 200, 135, 1);*/
+    background: url("../images/bg/titlebar.png"),url("../images/ico/bullet-s.png") no-repeat right bottom rgba(235, 200, 135, 1);
+    background-position: right bottom, 10px 14px;
     border-radius: 4px;
     color: rgba(58, 54, 47, 1);
     box-shadow: 5px 5px 5px #CCC9C9;
