@@ -23,7 +23,9 @@
 
 .grid-item-img-wrap {
     height: 150px;
-    background:url("../images/ico/bullet-s.png") no-repeat center center #3bb681;
+    /*background:url("../images/ico/bullet-s.png") no-repeat center center #3bb681;*/
+    background:url("../images/ico/no-image-available.gif") no-repeat center center;
+    background-size: 100% 100%;
     margin: 5px 5px 0px 0px;
     border-radius: 4px 4px 0px 0px;
     overflow: hidden;
