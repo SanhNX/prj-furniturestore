@@ -57,7 +57,7 @@
           <div class="col-lg-12">
             <!-- <h1>Administrator <small> Panel</small></h1> -->
             <ol class="breadcrumb">
-              <li><a href="index.html"><i class="fa fa-home"></i> Bảng Điều Khiển</a></li>
+              <li><a href="index.php"><i class="fa fa-home"></i> Bảng Điều Khiển</a></li>
               <li class="active"><i class="fa fa-bar-chart-o"></i> Danh Mục</li>
             </ol>
           </div>
