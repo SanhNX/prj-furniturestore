@@ -4,7 +4,9 @@
         <b class="title bar" style="width: 190px;">Hỗ Trợ</b>
         <div class="support">
         	<div class="support-title">Điện Thoại : </div>
-        	<div class="content">0938.086255 - <span>0938.123456</span></div>
+            <div class="content"><span>Phone </span>: 08-3831 5512</div>
+            <div class="content"><span>Mobile </span>: 0915 820 710</div>
+        	<div class="content"><span>Mobile </span>: 0169 587 5035</div>
         </div>
         <div class="support">
         	<div class="support-title">Yahoo : </div>

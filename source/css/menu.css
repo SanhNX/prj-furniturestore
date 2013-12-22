@@ -58,11 +58,13 @@
 }
 .support div.content {
     margin-left: 15px;
-    color: #009531;
+    color: rgba(58, 54, 47, 1);
     font-weight: normal;
     font-size: 13px;
     text-align: left;
+    margin-top: 5px;
 }
 .support div.content span {
-color: red;
+    font-weight: bold;
+    color: rgba(168, 123, 39, 1);
 }
