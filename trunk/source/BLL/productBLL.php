@@ -119,6 +119,37 @@ function getAllProductBySubCateId ($subcateid) {
     return $result;
 }
 
+function getRANDAllProductBySubCateId ($subcateid) {
+    // $sql = "SELECT * FROM tbl_product Where cateid = '".$id."' LIMIT '".($pageNumber*10)."', '".($pageNumber*10*2)."'"; // ORDER BY name ASC
+    $sql = "SELECT * FROM tbl_product Where subcateid = '".$subcateid."'  ORDER BY RAND() LIMIT 40"; // ORDER BY name ASC
+    $queryResult = mysql_query($sql);
+    if (!$queryResult) {
+        echo 'Could not run query: ' . mysql_error();
+        exit;
+    }
+    $i = 0;
+    $result = null;
+    while ($seletedItem = mysql_fetch_array($queryResult)) {
+        $item = new Product();
+        $item->id = $seletedItem['id'];
+        $item->subcateId = $seletedItem['subcateid'];
+        $item->name = $seletedItem['name'];
+        $item->price = $seletedItem['price'];
+        $item->promotion_price = $seletedItem['promotion_price'];
+        $item->image_1 = $seletedItem['image_1'];
+        $item->image_2 = $seletedItem['image_2'];
+        $item->image_3 = $seletedItem['image_3'];
+        $item->size = $seletedItem['size'];
+        $item->material = $seletedItem['material'];
+        $item->color = $seletedItem['color'];
+        $item->description = $seletedItem['description'];
+        $item->created_date = $seletedItem['created_date'];
+        $result[$i] = $item;
+        $i++;
+    }
+    return $result;
+}
+
 function getProductById ($id) {
     $sql = "SELECT * FROM tbl_product Where id = '".$id."'";
     $queryResult = mysql_query($sql);

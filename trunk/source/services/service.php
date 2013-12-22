@@ -30,7 +30,7 @@ if($flag == 'loadLeftMenu'){
 	echo json_encode($premiumProducts);
 } else if($flag == 'getProductsBySubCateId'){
     $categorie = getSubCategoryById($_POST['subCateId']);
-    $products = getAllProductBySubCateId($_POST['subCateId']);
+    $products = getRANDAllProductBySubCateId($_POST['subCateId']);
     // return value which function call ajax receive response
     $json = array('products' => $products, 'categorie' => $categorie);
     echo json_encode($json);
