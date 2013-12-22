@@ -139,19 +139,19 @@ body {
     width: 50%;
     font-size: 13px;
     vertical-align: top;
-    color: #FFF;
+    color: color: rgba(58, 54, 47, 1);
 }
 .contact-row.room0 {
-    background: url("../images/bg/show-bg0.png") no-repeat right bottom #3bb681;
+    background: url("../images/bg/show-bg0.png") no-repeat right bottom rgba(218, 193, 146, 1);
 }
 .contact-row.room1 {
-    background: url("../images/bg/show-bg1.png") no-repeat right bottom #3bb681;
+    background: url("../images/bg/show-bg1.png") no-repeat right bottom rgba(218, 193, 146, 1);
 }
 .contact-row.room2 {
-    background: url("../images/bg/show-bg2.png") no-repeat right bottom #3bb681;
+    background: url("../images/bg/show-bg2.png") no-repeat right bottom rgba(218, 193, 146, 1);
 }
 .contact-row.room3 {
-    background: url("../images/bg/show-bg3.png") no-repeat right bottom #3bb681;
+    background: url("../images/bg/show-bg3.png") no-repeat right bottom rgba(218, 193, 146, 1);
 }
 .map-panel{
     width: 50%;
