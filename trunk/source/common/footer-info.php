@@ -1,6 +1,6 @@
 <div class="foot-info">
     <div class="foot-left">
-        <div class="foot-logo font-effect-distressed-wood">NỘI &nbsp;&nbsp; THẤT &nbsp;&nbsp; TRẦN &nbsp;&nbsp; GIA &nbsp;&nbsp; VIỆT</div>
+        <div class="foot-logo">NỘI &nbsp;&nbsp; THẤT &nbsp;&nbsp; TRẦN &nbsp;&nbsp; GIA &nbsp;&nbsp; VIỆT</div>
         <div class="foot-desc">
             Cung Cấp Nội thất : Bàn giám đốc, bàn họp, bàn làm việc, quầy tiếp tân, nội thất, nội thất văn phòng, trang trí nội thất, 
             nội thất showroom, nội thất bar, vách ngăn, vách ngăn văn phòng, vách ngăn di động, vách ngăn toilet, tủ hồ sơ.
@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="foot-right">
-        <div class="foot-contact-name font-effect-distressed-wood">LIÊN &nbsp;&nbsp; HỆ</div>
+        <div class="foot-contact-name">LIÊN &nbsp;&nbsp; HỆ</div>
         <div class="foot-contact-desc">
             • Họ Tên : Phạm Thanh Hải </br>
             • Số Điện Thoại : 0915.820.710 <br/>

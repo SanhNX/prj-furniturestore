@@ -25,6 +25,7 @@
     background: url("../images/ico/bullet-color-ico-1.png") no-repeat left center;
     font-weight: bold;
     font-family: Rancho;
+    color: rgba(58, 54, 47, 1);
 }
 
 .foot-info .foot-desc {
@@ -41,13 +42,14 @@
 }
 
 .foot-info .foot-contact-name {
-    margin-left: 300px;
+    margin-left: 340px;
     height: 100px;
     line-height: 100px;
     font-size: 30px;
     font-weight: bold;
     text-transform: uppercase;
     font-family: Rancho;
+    background: url("../images/ico/bullet-color-ico-1.png") no-repeat left center;
 }
 
 .foot-info .foot-contact-desc {

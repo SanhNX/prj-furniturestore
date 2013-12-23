@@ -185,11 +185,12 @@ body {
     color: #fe9102;
 }
 .nav-company-name {
-    color: #fe9102;
-    font-family: 'Tangerine', serif;
-    font-size: 80px;
+    color: rgba(58, 54, 47, 1);
+    font-family: 'shadow-multiple', serif;
+    font-size: 60px;
     text-shadow: 4px 4px 4px #aaa;
     text-align: left;
+    margin-top: 10px;
 }
 #go_top{
     display:block;
