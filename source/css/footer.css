@@ -50,6 +50,7 @@
     text-transform: uppercase;
     font-family: Rancho;
     background: url("../images/ico/bullet-color-ico-1.png") no-repeat left center;
+    color: rgba(58, 54, 47, 1);
 }
 
 .foot-info .foot-contact-desc {
