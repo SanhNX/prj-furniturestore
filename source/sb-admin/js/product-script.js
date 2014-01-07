@@ -147,10 +147,11 @@ function completeResCallback(dto) {
         var obj = {
             notify: function() {
               alert( "Đã tạo thành công ! Bấm [OK] để tải lại trang.");
+              clearFormProduct();
             },
             redirect: function() {
                 cancelProduct();
-              onloadProductList(data.subcateId);
+                onloadProductList(data.subcateId);
                 $("#dropdownSubCateList").val(data.subcateId);
             }
         },
@@ -350,6 +351,9 @@ function clearFormProduct() {
     $("#txtMaterial").val("");
     $("#txtColor").val("");
     $("#txtDescription").val("");
+    $("#uploadfile1").val("");
+    $("#uploadfile2").val("");
+    $("#uploadfile3").val("");
     $("#removeimg1").click();
     $("#removeimg2").click();
     $("#removeimg3").click();
