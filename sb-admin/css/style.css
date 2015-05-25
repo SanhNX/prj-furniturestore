@@ -1,0 +1,47 @@
+.undisplayed{
+	display: none !important;
+}
+
+.btn-group-action {
+	text-align: center;
+}
+
+.btn-edit-action-cate{
+	margin-right: 20px;
+
+}
+.btn-action-cate:hover{
+	text-decoration: initial;
+}
+.btn-action-cate{
+	font-size: 2em;
+	cursor: pointer;
+}
+
+.align-center{
+	 text-align: center;
+}
+.align-vertical{
+	 vertical-align: middle !important;
+	 text-align: center;
+}
+
+.margin-bottom-top-10 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.margin-top-39 {
+	margin-top: 39px;
+}
+.margin-right-30 {
+	margin-right: 30px;
+}
+
+.img-hover {
+	opacity:0.4;
+	filter:alpha(opacity=40); /* For IE8 and earlier */
+}
+.img-hover:hover {
+	opacity:1.0;
+	filter:alpha(opacity=100); /* For IE8 and earlier */
+}

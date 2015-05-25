@@ -1,0 +1,275 @@
+html {
+}
+
+body {
+    font-family: "Myriad Pro", "Segoe UI";
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    min-width: 1100px;
+}
+.undisplayed {
+    display: none !important;
+}
+.main {
+    background: url("../images/bg/head_2.png") no-repeat center top;
+}
+
+.button {
+
+}
+
+.panel {
+
+}
+
+.page {
+    width: 1000px;
+    margin: 0px auto;
+}
+
+.header {
+    height: 60px;
+    text-align: right;
+}
+
+.container {
+    min-height: 500px;
+    font-size: 0;
+}
+
+.banner {
+    height: 360px;
+    font-size: 15px;
+}
+
+.title {
+    height: 30px;
+    line-height: 30px;
+    font-size: 16px;
+    color: #222222;
+    font-weight: bold;
+}
+.title.bar{
+    margin-top: 25px;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 30px;
+    margin-bottom: 25px;
+    display: block;
+    /*background:url("../images/bg/titlebar.png") no-repeat right bottom #3bb681;*/
+    /*background:url("../images/bg/titlebar.png") no-repeat right bottom rgba(235, 200, 135, 1);*/
+    background: url("../images/bg/titlebar.png"),url("../images/ico/bullet-s.png") no-repeat right bottom rgba(235, 200, 135, 1);
+    background-position: right bottom, 10px 14px;
+    border-radius: 4px;
+    color: rgba(58, 54, 47, 1);
+    box-shadow: 5px 5px 5px #CCC9C9;
+}
+.light-title{
+    font-family: "Segoe UI light";
+    font-size: 30px;
+    color: rgba(168, 123, 39, 1);
+    font-weight: bold;
+}
+.text{
+    margin: 15px;
+    font-size: 13px;
+}
+.highlight{
+    /*color: #3bb681;*/
+    color: rgba(168, 123, 39, 1);
+}
+.left-menu {
+    width: 190px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.right-panel {
+    width: 800px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 15px;
+}
+
+.detail-panel {
+    font-size: 0;
+}
+
+.detail-view {
+    font-size: 13px;
+    width: 350px;
+    height: 270px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+    color: #578135;
+}
+
+.detail-cast-btn {
+    height: 60px;
+    line-height: 60px;
+    text-indent: 60px;
+    font-size: 18px;
+    background: url("../images/ico/cash-ico.png") no-repeat 10px top;
+    display: inline-block;
+    padding: 0px 20px;
+    margin-top: 20px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.map-panel {
+    height: 200px;
+    width: 100%;
+    display: inline-block;
+}
+
+.contact-row {
+    font-size: 0;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #3bb681;
+}
+.contact-panel {
+    display: inline-block;
+    width: 50%;
+    font-size: 13px;
+    vertical-align: top;
+    color: color: rgba(58, 54, 47, 1);
+}
+.contact-row.room0 {
+    background: url("../images/bg/show-bg0.png") no-repeat right bottom rgba(218, 193, 146, 1);
+}
+.contact-row.room1 {
+    background: url("../images/bg/show-bg1.png") no-repeat right bottom rgba(218, 193, 146, 1);
+}
+.contact-row.room2 {
+    background: url("../images/bg/show-bg2.png") no-repeat right bottom rgba(218, 193, 146, 1);
+}
+.contact-row.room3 {
+    background: url("../images/bg/show-bg3.png") no-repeat right bottom rgba(218, 193, 146, 1);
+}
+.map-panel{
+    width: 50%;
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.show-room-name {
+    font-size: 23px;
+    margin: 10px 10px 0px 10px;
+}
+
+.show-room-address {
+    margin: 0px 10px 0px 10px;
+    padding-left: 15px;
+    line-height: 22px;
+    background: url("../images/ico/map-ic.png") no-repeat left 3px;
+    background-size: 10px;
+}
+.show-room-phone {
+    margin: 0px 10px 0px 10px;
+    padding-left: 15px;
+    line-height: 22px;
+    background: url("../images/ico/phone-ic.png") no-repeat left 3px;
+    background-size: 10px;
+}
+.message-panel{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    color: #fe9102;
+}
+.nav-company-name {
+    color: rgba(58, 54, 47, 1);
+    font-family: 'shadow-multiple', serif;
+    font-size: 60px;
+    text-shadow: 4px 4px 4px #aaa;
+    text-align: left;
+    margin-top: 10px;
+}
+#go_top{
+    display:block;
+    width:31px;
+    height:31px;
+    position:fixed;
+    background-color: rgba(155, 130, 80, 1);
+    bottom:15px;
+    right:15px;
+    display:none;
+    cursor: pointer;
+}
+
+#go_top:before{
+    content:"";
+    position:Absolute;
+    width:0;
+    height:0;
+    border:11px solid transparent;
+    border-bottom:11px solid white;
+    left:5px;
+    top:-8px;
+}
+
+
+#go_top:after{
+    content:"";
+    position:Absolute;
+    width:10px;
+    height:17px;
+    background-color:white;
+    left:11px;
+    top:14px;
+}
+/*----------------------------- Loading popup --------------------------*/
+.popup-text{
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    margin-top: 200px;
+}
+.spinner {
+  width: 100px;
+  height: 100px;
+
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  -webkit-animation: bounce 2.0s infinite ease-in-out;
+  animation: bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(0.0) }
+  50% { transform: scale(1.0) }
+}
+/*----------------------------- Loading popup --------------------------*/
+
+.line-through{
+    text-decoration: line-through;
+}
